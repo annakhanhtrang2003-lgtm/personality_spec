@@ -1,8 +1,9 @@
 # Personal Definition Agent — Design Spec
 
 **Date:** 2026-06-26
+**Revised:** 2026-07-15 — removed referral/streaks/rewards; removed all LLM/Claude usage (fully deterministic flow)
 **Status:** Draft
-**Scope:** Buddy Agent Step 1 — Personal Definition + Referral System
+**Scope:** Buddy Agent Step 1 — Personal Definition
 
 ---
 
@@ -10,129 +11,103 @@
 
 The Personal Definition Agent is Step 1 of the Buddy Agent system. It helps Vietnamese students (year 3-4 and fresh graduates) discover who they are through three personality frameworks, then uses that profile to drive career matching in Step 2.
 
-The agent combines a serious personality framework (MBTI) with fun, shareable layers (Zodiac, Numerology) to create a viral referral loop. The fun layers are the acquisition hook; MBTI is the career value.
+It combines a serious personality framework (MBTI) with fun, engaging layers (Zodiac, Numerology). The fun layers make the experience approachable; MBTI is the career value that feeds Step 2.
+
+Step 1 is a **fully deterministic app** — no LLM/Claude calls anywhere. Every result comes from fixed data tables, a fixed question bank, and rule-based scoring. "Agent" here is a product name, not an autonomous LLM agent.
 
 ### Goals
 
 - Help users build a meaningful self-understanding profile
-- Create shareable moments that drive referral invites
-- Retain users post-profile through streaks and social features
 - Produce a weighted personality profile that feeds Step 2 (Career Path Matching)
+- Give users a shareable result card they can post if they want
 
 ### Target Users
 
 - Vietnamese university students (year 3-4) and fresh graduates
 - Primary language: Vietnamese
-- Comfortable with social sharing, astrology culture, personality tests
+- Comfortable with astrology culture and personality tests
 
 ---
 
 ## 2. Architecture
 
-### Single Agent + Modular Tools
+### Deterministic Flow Controller + Modular Calculators
 
-One conversational agent drives the entire Step 1 flow. It handles tone, pacing, and user engagement. The calculation logic lives in four independent modules the agent calls as tools.
+A client-side **Flow Controller** (a guided wizard) drives Step 1 through fixed phases. It owns phase state, screen transitions, and collected input. All computation lives in four independent, pure modules it calls — no network dependency for the core flow, no LLM.
 
 ```
-User <-> Personal Definition Agent
+User <-> Flow Controller (wizard)
               |
-              |-- ZodiacCalculator (tool)
-              |-- NumerologyCalculator (tool)
-              |-- MBTIAnalyzer (tool)
-              |-- ProfileSynthesizer (tool)
+              |-- ZodiacCalculator (pure fn)
+              |-- NumerologyCalculator (pure fn)
+              |-- MBTIScorer (pure fn)
+              |-- ProfileBuilder (template composer)
 ```
 
 **Why this architecture:**
-- One continuous conversation = smooth UX, no jarring handoffs
-- Agent can cross-reference layers naturally ("Nhân Mã mà ENFJ thì thú vị nha!")
-- Modules are independently testable and reusable
-- Easy to add new fun layers later (e.g., Chinese zodiac) without rewriting the agent
+- Fully deterministic → every module is unit-testable with fixed inputs/outputs, no mocking
+- No API keys, no latency, no LLM cost; works offline except OG-image generation
+- Modules have single responsibilities and can be reused/replaced independently
+- Easy to add new fun layers later (e.g., Chinese zodiac) without touching the flow
 
 ---
 
-## 3. Conversation Flow
+## 3. User Flow
 
-### Phase 0 — Onboarding (~30 seconds)
+Five phases, driven by the Flow Controller. All on-screen copy is static template text (no generated dialogue).
 
-- Greet user, ask their name
-- Ask their university (for card branding)
-- Ask birthday (day/month/year)
-- This single input unlocks: Sun sign + Life Path Number immediately
-- Tone: curious friend
+### Phase 0 — Onboarding
 
-### Phase 1 — Zodiac Deep Dive (~2-3 minutes)
+- Structured form: name, university (dropdown), birthday (date picker), full name (as on birth certificate)
+- Birthday unlocks Sun sign + Life Path Number
+- No free-text parsing of dates/names
 
-- Immediately reveal Sun sign with mystic/magical tone
-- Ask birth time for Moon + Rising signs
-- If user doesn't know birth time: guide them to find it
-  - Suggest: check birth certificate, ask parents, check hospital records
-  - Bookmark for later — deliver Sun sign results now
-  - Mark Moon/Rising as "unlockable later" (re-engagement hook)
-- Ask birth location (city level)
-- If time + location provided: calculate and present full zodiac triad (Sun/Moon/Rising)
-- Present element (Fire/Earth/Air/Water) and modality (Cardinal/Fixed/Mutable)
-- **Shareable moment #1:** generate partial profile card with zodiac triad
-- Tone: **mystic guide** — poetic, mysterious, special
+### Phase 1 — Zodiac Reveal
 
-### Phase 2 — Numerology (~1-2 minutes)
+- Compute and present **Sun sign** from birth date
+- Present element (Fire/Earth/Air/Water), modality (Cardinal/Fixed/Mutable), and traits — all derived from the Sun sign
+- Optionally ask birth time as a **teaser only** — "Moon & Rising sẽ mở khoá ở bản sau" (not computed in Phase 1)
+- **Shareable moment #1:** partial card with Sun sign
 
-- Life Path Number already calculated from birthday
-- Ask full name (as on birth certificate) for Expression Number
-- Present both numbers with mystical interpretation
-- Cross-reference with zodiac results:
-  - "Số chủ đạo 7 kết hợp với Nhân Mã — bạn vừa thích phiêu lưu vừa hay đào sâu suy nghĩ"
-- Tone: **mystic guide**
+### Phase 2 — Numerology Reveal
 
-### Phase 3 — MBTI Exploration (~5-8 minutes)
+- Life Path Number already computed from birthday
+- Expression Number computed from full name
+- Present both with template interpretations
+- Static cross-reference line combining Sun sign + Life Path (from a lookup table, not generated)
 
-- Tone transition: "Giờ mình tìm hiểu sâu hơn về tính cách bạn nha!"
-- Adaptive conversational questioning — NOT a fixed quiz
-- Agent asks open-ended questions, adapts follow-ups based on answers
-- Covers all 4 MBTI dimensions:
-  - E (Extraversion) / I (Introversion)
-  - S (Sensing) / N (Intuition)
-  - T (Thinking) / F (Feeling)
-  - J (Judging) / P (Perceiving)
-- Agent calls MBTIAnalyzer after each answer to update running assessment
-- Chooses next question based on which dimensions still need clarity
-- Cross-references with previous layers naturally during conversation
-- ~15-20 conversational exchanges total
-- Tone: **curious buddy** — friendly, casual, like talking to a friend
+### Phase 3 — MBTI Quiz
+
+- **Fixed question bank** (see §4.3) — a set quiz, not an adaptive conversation
+- Multiple-choice / forced-choice questions covering all 4 dimensions (E/I, S/N, T/F, J/P)
+- Progress indicator; all questions must be answered before scoring
+- On completion, MBTIScorer tallies answers into a 4-letter type
 
 ### Phase 4 — Profile Synthesis
 
-- Agent calls ProfileSynthesizer with all collected data
-- Presents the "story of you" — a narrative weaving all three layers
-- Weighted profile: MBTI 80% + Zodiac/Numerology 20%
-- Highlights: key strengths, growth areas, personality keywords
-- **Shareable moment #2:** full profile card generated
-- University badge applied to card
-- Triggers referral prompt: "Test mức độ hiểu biết của bạn và bestie?"
-- Stores structured profile for Step 2 handoff
+- ProfileBuilder composes the "story of you" from templates keyed on the results
+- Weighted profile: MBTI 80% (core strengths/growth/keywords) + Zodiac/Numerology 20% (flavor lines)
+- **Shareable moment #2:** full profile card (university badge applied)
+- Structured profile handed to Step 2 (in-session; no persistence in Phase 1)
 
 ---
 
-## 4. Calculation Modules
+## 4. Modules
+
+All four are pure/deterministic. No LLM.
 
 ### 4.1 ZodiacCalculator
 
 **Input:**
 - birth_date (required): date
-- birth_time (optional): time
-- birth_location (optional): city string
 
 **Output:**
-- sun_sign: always computed from date ranges
-- moon_sign: computed if birth_time + birth_location provided (requires ephemeris data)
-- rising_sign: computed if birth_time + birth_location provided (requires house calculation)
+- sun_sign: computed from date ranges
 - element: Fire / Earth / Air / Water
 - modality: Cardinal / Fixed / Mutable
-- traits: array of personality descriptors
-- compatibility_notes: used for friend comparison feature
+- traits: array of personality descriptors (from `data/zodiac/signs.json`)
 
-**Data:**
-- Pre-computed ephemeris tables (1990-2030) stored in `data/ephemeris/`
-- City-to-coordinates mapping for Vietnamese cities in `data/locations/`
+Moon/Rising are **out of scope for Phase 1** (deferred). Birth time/location are not used.
 
 ### 4.2 NumerologyCalculator
 
@@ -143,239 +118,175 @@ User <-> Personal Definition Agent
 **Output:**
 - life_path_number: single digit 1-9 or master number 11/22/33
 - expression_number: single digit 1-9 or master number 11/22/33
-- interpretations: object with meaning for each number
+- interpretations: object with meaning for each number (from `data/numerology/interpretations.json`)
 
 **Logic:**
 - Life Path: sum all digits of birth date, reduce to single digit (preserve master numbers)
 - Expression: map each letter to number using Pythagorean system
-- Vietnamese diacritics mapping table: strip diacritics first (A=A=A=1), handle D/D separately
+- Vietnamese diacritics: strip diacritics first (A=Á=À=1), handle D/Đ separately
 - Mapping stored in `data/numerology/vietnamese-char-map.json`
 
-### 4.3 MBTIAnalyzer
+### 4.3 MBTIScorer
 
 **Input:**
-- qa_pairs: array of { question: string, answer: string } from the conversation
+- answers: array of selected-option ids, one per quiz question
+
+**Question bank (`data/mbti/questions.json`):**
+- Fixed set of ~20 forced-choice questions (≈5 per dimension)
+- Each question maps its options to a pole (e.g., option A → E, option B → I) with a weight
 
 **Output:**
 - type: 4-letter string (e.g., "ENFJ")
-- dimensions: object with percentage scores per dimension
-  - e.g., { EI: { E: 72, I: 28 }, SN: { S: 35, N: 65 }, TF: { T: 40, F: 60 }, JP: { J: 55, P: 45 } }
-- traits: descriptions per dimension
-- confidence: "low" | "medium" | "high" (based on answer consistency and sample size)
-- suggested_next_question: the dimension that needs most clarity + a suggested question topic
+- dimensions: percentage scores per dimension, e.g. `{ EI: { E: 72, I: 28 }, ... }` — raw margins are retained, so Step 2 can derive its own trust signal later if needed
+- traits: descriptions per dimension (from `data/mbti/types.json`)
 
 **Logic:**
-- NLP analysis of open-ended answers to score each dimension
-- Running assessment updated after each answer
-- Confidence increases as more questions are answered
-- Agent stops when all dimensions reach "medium" confidence or higher (~15-20 questions)
+- Tally weighted votes per dimension across all answers
+- Dominant pole wins each dimension; percentage = pole votes / total votes for that dimension
+- Deterministic tie-break rule (documented in code) when a dimension is exactly 50/50
 
-### 4.4 ProfileSynthesizer
+### 4.4 ProfileBuilder
 
 **Input:**
-- zodiac_result: output from ZodiacCalculator
-- numerology_result: output from NumerologyCalculator
-- mbti_result: output from MBTIAnalyzer
-- user_name: string
-- university: string
+- zodiac_result, numerology_result, mbti_result
+- user_name, university
 
 **Output:**
-- narrative_profile: Vietnamese text — the "story of you" weaving all layers
-- weighted_trait_map: MBTI-weighted (80%) trait scores with zodiac/numerology flavor (20%)
-- strengths: top 5 strengths
-- growth_areas: top 3 areas for development
-- personality_keywords: 5-8 keywords summarizing the profile
-- career_hints: preliminary career direction signals (passed to Step 2)
+- narrative_profile: Vietnamese text composed from templates
+- weighted_trait_map: MBTI-weighted (80%) with zodiac/numerology flavor (20%)
+- strengths: top 5 (from the MBTI type's data)
+- growth_areas: top 3 (from the MBTI type's data)
+- personality_keywords: 5-8 keywords
+- career_hints: preliminary signals passed to Step 2
 - shareable_card_data: structured data for card generation
+
+**Logic:**
+- Template-based composition (no generation). Narrative = fixed template fragments keyed by MBTI type + zodiac element + life path number, with placeholders (name, type name, etc.) filled in
+- strengths/growth/keywords pulled from `data/mbti/types.json` (primary) and blended with flavor lines from zodiac/numerology data files
+- Templates stored in `data/profiles/templates.json`
 
 ---
 
-## 5. Referral & Sharing System
+## 5. UX & Screens
 
-### 5.1 Shareable Profile Card
+Hybrid flow — structured input where accuracy matters, a quiz for MBTI, result screens for the payoff.
+
+- **Onboarding screen** — form: name (text), university (dropdown from `data/universities.json`), birthday (date picker), full name (text). Client-side validation.
+- **Zodiac result screen** — Sun sign reveal (element/modality/traits) + partial card. Optional birth-time teaser.
+- **Numerology result screen** — Life Path + Expression numbers with interpretations.
+- **Quiz screen** — the MBTI question bank, one question at a time (or paged), progress bar, back/next. Replaces any chat interface. No free-text.
+- **Synthesis / result screen** — narrative profile + strengths/growth/keywords + full card with **Share** (Web Share API, copy fallback) and **Download** (PNG).
+
+---
+
+## 6. State Model
+
+Single Zustand store, **in-session only** (no persistence in Phase 1 — anonymous):
+
+```typescript
+interface Step1State {
+  phase: "onboarding" | "zodiac" | "numerology" | "quiz" | "synthesis";
+  input: {
+    name: string;
+    university: string;
+    birth_date: string;
+    full_name: string;
+    birth_time?: string; // captured as teaser only, unused in Phase 1
+  };
+  zodiacResult: ZodiacResult | null;
+  numerologyResult: NumerologyResult | null;
+  quizAnswers: string[];          // selected option ids, index-aligned to question bank
+  mbtiResult: MBTIResult | null;
+  profile: PersonalProfile | null;
+}
+```
+
+**Phase state machine:** `onboarding → zodiac → numerology → quiz → synthesis`, strictly forward. Each transition guarded: a phase cannot start until the previous phase's required data exists (e.g., quiz cannot be scored until all answers present; synthesis requires zodiac + numerology + mbti results).
+
+---
+
+## 7. Shareable Profile Card
+
+A single-purpose output: a visual card of the user's personality result. The card image is shown to the user, who can then tap **Share** or **Download** to save it. It is a static artifact — no referral code, no tracking, no social/friend mechanics.
+
+### 7.1 Card
 
 **Generated at two moments:**
-1. After Phase 1 (Zodiac) — partial card, early hook
+1. After Phase 1 (Zodiac) — partial card with Sun sign
 2. After Phase 4 (Synthesis) — full card with all results
 
 **Card content:**
 - User name
 - University badge/branding (UEH, RMIT, FPT, HCMUT, etc.)
-- Zodiac triad (Sun/Moon/Rising) with element icon
+- Sun sign with element icon
 - Life Path + Expression numbers
 - MBTI type
 - Short personality tagline
-- Streak badges (added over time)
-- Friend connection count
 
 **Format:**
-- OG-image style visual card
-- Unique shareable link with referral code
+- OG-image style visual card, rendered as an image the user sees on screen
 - University-themed color scheme/design
+- Two actions on the card:
+  - **Share** — Web Share API, with copy-link / copy-image fallback
+  - **Download** — save the card image (PNG) to the device
 
-**Card evolution — the card is NOT static:**
-- Base card: after profile completion
-- University badge: added during onboarding
-- Streak flames/badges: appear as streaks grow
-- Friend connections: shown on card as they're added
-- The card becomes a living identity artifact
-
-### 5.2 Comparison Game — "Test mức độ hiểu biết của bạn và bestie?"
-
-**Flow:**
-1. User A completes their profile
-2. Prompt: "Test mức độ hiểu biết của bạn và bestie?"
-3. User A answers quick questions guessing about their friend:
-   - Guess friend's MBTI type
-   - Guess friend's zodiac traits
-   - Guess friend's personality keywords
-4. User A sends invite link to Friend B
-5. Friend B clicks link → completes their own profile
-6. System reveals:
-   - How accurate A's guesses were (score)
-   - Compatibility report (MBTI matrix + zodiac elements + numerology harmony)
-7. Friend B then guesses about User A → mutual reveal
-8. Both see a shared compatibility card
-
-**Second-order virality:**
-- Both users are prompted to challenge more friends
-- Compatibility card is shareable itself
-
-### 5.3 Referral Loop
-
-**Flow:**
-User A completes profile → selects university → card generated → comparison game invite → Friend B joins → B completes profile → mutual reveal → both invited to challenge more friends → cycle repeats
-
-**Tracking:**
-- Each user gets a unique referral code
-- Track: link clicks → profile starts → profile completions → friend connections made
-- University-level leaderboards (optional): "UEH đã có 342 bạn tham gia!"
-
-**Incentive:**
-- The comparison game IS the primary incentive (curiosity-driven)
-- Streak rewards add long-term retention (see Section 6)
-
-### 5.4 Privacy
+### 7.2 Privacy
 
 - Users choose what to display on their profile card
 - Can hide MBTI, zodiac details, or specific results
-- Comparison only happens when both users have completed profiles
-- No raw personal data (birth time, location, full name) shown on cards — only derived results
+- No raw personal data (birth time, full name) shown on cards — only derived results
 - University affiliation is user-selected, not verified
 
 ---
 
-## 6. Retention: Streaks & Rewards
+## 8. Error Handling
 
-### 6.1 Calendar Streaks
+No LLM/network calls in the core flow, so error surface is small and mostly input-side:
 
-**Daily check-in system after profile completion:**
-- Daily reflection prompts tied to personality type
-- Zodiac-flavored daily nudges: "Hôm nay Nhân Mã của bạn nên thử..."
-- MBTI-based growth challenges: "Thử thách cho ENFJ hôm nay: lắng nghe nhiều hơn nói"
-- Numerology daily number energy
-
-**Calendar visualization:**
-- Visual calendar grid (GitHub contribution graph / Duolingo style)
-- Each day color-coded by zodiac element:
-  - Fire = red
-  - Water = blue
-  - Earth = green
-  - Air = purple
-- States:
-  - Completed check-in → lit up in element color
-  - Missed day → grey
-  - Friend interaction day → special glow/star marker
-- Monthly view shows consistency patterns
-- Milestone markers at 7-day, 30-day, 100-day with reward icons
-- Shareable: "Tháng này mình check-in 28/30 ngày!" → viral moment
-
-### 6.2 Friend Streaks
-
-- Tracks ongoing engagement between connected friends
-- Weekly mini-challenges: "Tuần này ai đoán đúng mood của người kia nhiều hơn?"
-- Friend streak counter visible on both users' cards
-- Maintains social bond post-referral
-
-### 6.3 Rewards Tiers
-
-| Milestone | Reward |
-|---|---|
-| 7-day streak | MoMo xu (small amount) |
-| 14-day streak | Student package discount (Grab, Shopee, Canva Pro) |
-| 30-day streak | MoMo xu (larger amount) + exclusive card badge |
-| 60-day streak | Merchandise entry (stickers, phone cases with personality art) |
-| 100-day streak | Premium merchandise (tote bag, custom zodiac/MBTI art) |
-| Friend streak milestones | Bonus MoMo xu for both friends |
-
-**Partner integrations needed:**
-- MoMo (payment/rewards)
-- Student discount partners (Grab, Shopee, Canva, etc.)
-- Merchandise production/fulfillment partner
+- **Form validation (onboarding):** name/full name non-empty; university selected; birth date is a valid calendar date and not in the future. Block progress with inline messages until valid.
+- **Numerology edge case:** full name with no mappable letters (e.g., only symbols) → prompt user to re-enter a valid name.
+- **Quiz completeness:** scoring guarded — cannot reach synthesis until every question is answered.
+- **Card / OG image generation failure:** the only networked step; on failure, fall back to rendering the card as on-screen HTML and offer a retry. Core results remain fully available offline.
 
 ---
 
-## 7. Agent System Prompt Structure
+## 9. Testing
 
-The agent uses a single system prompt with phase-aware instructions:
+vitest, all deterministic — no mocking required:
 
-```
-ROLE: Personal Definition Buddy — help Vietnamese students discover themselves
-
-PERSONALITY MODES:
-- Phase 0 (Onboarding): Curious friend — warm, casual
-- Phase 1 (Zodiac): Mystic guide — poetic, mysterious, magical
-- Phase 2 (Numerology): Mystic guide — mystical, insightful
-- Phase 3 (MBTI): Curious buddy — friendly, casual, like a real friend
-- Phase 4 (Synthesis): Warm storyteller — weaving everything together
-
-LANGUAGE: Vietnamese. Casual, gen-Z friendly. No formal/HR-speak.
-
-TOOLS AVAILABLE:
-- ZodiacCalculator
-- NumerologyCalculator
-- MBTIAnalyzer
-- ProfileSynthesizer
-
-FLOW: Follow phases 0-4 sequentially. Cross-reference layers naturally.
-Never reveal you are using tools — present results as your own insight.
-
-REFERRAL: After Phase 4, always prompt the comparison game.
-```
+- **ZodiacCalculator:** date → Sun sign, including sign-boundary dates; element/modality derivation.
+- **NumerologyCalculator:** Life Path reduction, master-number preservation (11/22/33), Vietnamese diacritics stripping, D/Đ handling.
+- **MBTIScorer:** answer arrays → expected type; percentage math; documented tie-break at exact 50/50.
+- **ProfileBuilder:** template composition for each of the 16 types — assert no unfilled placeholders and correct data blending.
+- **State machine:** legal phase transitions succeed; guarded transitions blocked until prerequisites exist.
 
 ---
 
-## 8. Data Requirements
+## 10. Data Requirements
 
 | Data | Source | Storage |
 |---|---|---|
-| Ephemeris tables (1990-2030) | Swiss Ephemeris / pre-computed | `data/ephemeris/` |
-| Vietnamese city coordinates | Manual curation (~50 major cities) | `data/locations/` |
+| Zodiac sign traits & descriptions | Content creation | `data/zodiac/signs.json` |
 | Vietnamese character → number mapping | Pythagorean system adapted | `data/numerology/vietnamese-char-map.json` |
 | Numerology interpretations (1-9, 11, 22, 33) | Content creation | `data/numerology/interpretations.json` |
-| Zodiac sign traits & descriptions | Content creation | `data/zodiac/signs.json` |
-| MBTI type descriptions (16 types) | Content creation | `data/mbti/types.json` |
-| MBTI question bank | Content creation | `data/mbti/questions.json` |
-| MBTI compatibility matrix | Research-based | `data/mbti/compatibility.json` |
-| Zodiac compatibility matrix | Astrology-based | `data/zodiac/compatibility.json` |
+| MBTI question bank (fixed quiz, dimension + weight per option) | Content creation | `data/mbti/questions.json` |
+| MBTI type descriptions (16 types: traits, strengths, growth, keywords) | Content creation | `data/mbti/types.json` |
+| Profile narrative templates | Content creation | `data/profiles/templates.json` |
 | University list + branding | Manual curation | `data/universities.json` |
 
 ---
 
-## 9. Tech Stack Alignment
-
-Aligns with existing Buddy Agent setup:
+## 11. Tech Stack Alignment
 
 - **Frontend:** Next.js 15 + React 19 + Tailwind CSS 4
-- **State management:** Zustand (conversation state, user profile, streak data)
-- **AI:** Anthropic Claude API via @anthropic-ai/sdk (agent conversation + tool use)
-- **Card generation:** Server-side OG image generation (Next.js API routes)
-- **Streak calendar:** React component, data persisted (database TBD)
+- **State management:** Zustand (in-session store, no persistence in Phase 1)
+- **Computation:** plain TypeScript modules (no external AI/LLM). **Remove `@anthropic-ai/sdk` from `package.json`** — not used in Step 1.
+- **Card generation:** server-side OG image generation (Next.js API route), with on-screen HTML fallback
 - **Sharing:** Web Share API + fallback copy-to-clipboard
 
 ---
 
-## 10. Profile Data Schema (Step 2 Handoff)
+## 12. Profile Data Schema (Step 2 Handoff)
 
 The structured output passed to the Career Path Matching agent:
 
@@ -389,8 +300,8 @@ interface PersonalProfile {
 
   zodiac: {
     sun_sign: string;
-    moon_sign: string | null;
-    rising_sign: string | null;
+    moon_sign: string | null;   // deferred in Phase 1
+    rising_sign: string | null; // deferred in Phase 1
     element: "Fire" | "Earth" | "Air" | "Water";
     modality: "Cardinal" | "Fixed" | "Mutable";
     traits: string[];
@@ -413,7 +324,6 @@ interface PersonalProfile {
       TF: { T: number; F: number };
       JP: { J: number; P: number };
     };
-    confidence: "low" | "medium" | "high";
     traits: string[];
   };
 
@@ -430,13 +340,13 @@ interface PersonalProfile {
 
 ---
 
-## 11. Out of Scope (for this spec)
+## 13. Out of Scope (for this spec)
 
+- Conversational / LLM-based interaction (Phase 1 is fully deterministic)
+- Moon & Rising sign computation (deferred to a later version)
 - Step 2-4 agents (Career Matching, CV Prep, Job Search)
 - User authentication / account system
-- Database selection and schema
-- Payment integration with MoMo (needs separate spec)
-- Merchandise fulfillment pipeline
+- Database selection and schema (Phase 1 runs anonymous, no persistence)
 - University verification
 - Admin dashboard
 - Analytics / tracking implementation
