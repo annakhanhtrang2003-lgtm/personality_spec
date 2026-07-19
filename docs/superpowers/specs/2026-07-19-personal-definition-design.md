@@ -314,7 +314,7 @@ vitest. Everything is deterministic, so no mocking.
 - All `+2` on `key: +1` items and all `-2` on `key: -1` items → `S = +20` → 100%.
 - All-neutral responses → `S = 0` on every dimension → type equals the declared defaults (INFP).
 - Percentage math at `S = -20, -3, 0, +12, +20`.
-- A single item flip changes `S` by exactly `2 × |r|`, not more.
+- Moving one item's response by one step changes that dimension's `S` by exactly 1, and leaves the other three dimensions untouched.
 
 **ProfileBuilder** — compose for all 16 types; assert no unfilled placeholders remain; assert `career_hints`, `strengths`, `growth_areas`, and `personality_keywords` are byte-identical for two profiles differing only in birth date (this is the regression test for §5).
 
