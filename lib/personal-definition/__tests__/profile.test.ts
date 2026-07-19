@@ -23,11 +23,13 @@ const OTHER_NAME = "Nguyễn Văn Dũng";
 
 // All-extreme-first-pole answers. Per scoreMBTI, item key +1 pushes toward
 // the dimension's first pole (E, S, T, J) when answered "Rất đúng" (+2), and
-// item key -1 pushes the same direction when answered "Rất sai" (-2). With
-// the shipped 8-item bank (2 items per dimension) this yields type "ESTJ",
-// whose data/mbti-types.json entry is currently unpopulated (label: "",
-// career_hints: []) — everything except INFP is, until Task 11 fills them in.
-const ESTJ_RESPONSES: Response[] = [2, -2, 2, -2, 2, -2, 2, -2];
+// item key -1 pushes the same direction when answered "Rất sai" (-2). So
+// answering every item at 2 * key drives every dimension to its maximum
+// positive score, yielding "ESTJ" for any balanced bank.
+//
+// Derived from the bank rather than hardcoded: Task 9 grew the bank from 8
+// items to 40, and a literal vector silently became the wrong length.
+const ESTJ_RESPONSES: Response[] = bank.items.map((i) => (2 * i.key) as Response);
 
 describe("buildProfile", () => {
   it("assembles all three layers", () => {
