@@ -48,4 +48,10 @@ describe("calculateZodiac", () => {
   it("rejects a malformed date", () => {
     expect(() => calculateZodiac("15-06-2003")).toThrow(/YYYY-MM-DD/);
   });
+
+  it("rejects impossible calendar dates instead of silently resolving them", () => {
+    expect(() => calculateZodiac("2003-02-30")).toThrow(/not a real date/);
+    expect(() => calculateZodiac("2003-13-45")).toThrow(/not a real date/);
+    expect(() => calculateZodiac("2003-00-00")).toThrow(/not a real date/);
+  });
 });

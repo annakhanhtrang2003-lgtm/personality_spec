@@ -1,4 +1,5 @@
 import type { Element, Modality, ZodiacResult } from "./types";
+import { parseBirthDate } from "./date";
 import signs from "./data/zodiac-signs.json";
 
 interface SignRow {
@@ -25,9 +26,7 @@ function md(monthDay: string): number {
  * dates live in zodiac-signs.json so the convention is visible as data.
  */
 export function calculateZodiac(birthDate: string): ZodiacResult {
-  if (!/^\d{4}-\d{2}-\d{2}$/.test(birthDate)) {
-    throw new Error(`calculateZodiac: expected YYYY-MM-DD, got "${birthDate}"`);
-  }
+  parseBirthDate(birthDate, "calculateZodiac");
 
   const value = md(birthDate.slice(5));
 
