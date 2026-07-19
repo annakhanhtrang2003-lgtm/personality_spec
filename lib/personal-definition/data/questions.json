@@ -1,0 +1,20 @@
+{
+  "size": 8,
+  "defaults": { "EI": "I", "SN": "N", "TF": "F", "JP": "P" },
+  "poles": {
+    "EI": { "first": "E", "second": "I" },
+    "SN": { "first": "S", "second": "N" },
+    "TF": { "first": "T", "second": "F" },
+    "JP": { "first": "J", "second": "P" }
+  },
+  "items": [
+    { "id": "ei_01", "dimension": "EI", "key":  1, "text": "Ở chỗ đông người, tôi thường là người bắt chuyện trước." },
+    { "id": "ei_02", "dimension": "EI", "key": -1, "text": "Sau một buổi họp nhóm đông người, tôi thấy cạn năng lượng." },
+    { "id": "sn_01", "dimension": "SN", "key":  1, "text": "Tôi tin vào những gì mình quan sát được hơn là linh cảm." },
+    { "id": "sn_02", "dimension": "SN", "key": -1, "text": "Tôi hay nghĩ tới việc mọi thứ có thể trở thành cái gì trong tương lai." },
+    { "id": "tf_01", "dimension": "TF", "key":  1, "text": "Khi góp ý cho bạn, tôi nói thẳng vấn đề dù hơi khó nghe." },
+    { "id": "tf_02", "dimension": "TF", "key": -1, "text": "Trước khi quyết định, tôi cân nhắc quyết định đó ảnh hưởng tới cảm xúc của ai." },
+    { "id": "jp_01", "dimension": "JP", "key":  1, "text": "Tôi lên kế hoạch cho kỳ thi từ sớm và bám theo lịch đã đặt." },
+    { "id": "jp_02", "dimension": "JP", "key": -1, "text": "Tôi làm việc hiệu quả nhất khi để mọi thứ linh hoạt tới phút cuối." }
+  ]
+}
