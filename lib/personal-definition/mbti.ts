@@ -37,6 +37,23 @@ const DIMENSIONS: Dimension[] = ["EI", "SN", "TF", "JP"];
  * `defaults` differ from its `second` poles.
  */
 export function scoreMBTI(responses: Response[], questionBank: QuestionBank = BANK): MBTIResult {
+  if (questionBank.size !== questionBank.items.length) {
+    throw new Error(
+      `scoreMBTI: questionBank.size (${questionBank.size}) does not match items.length (${questionBank.items.length})`
+    );
+  }
+  for (const d of DIMENSIONS) {
+    const hasItem = questionBank.items.some((item) => item.dimension === d);
+    if (!hasItem) {
+      throw new Error(`scoreMBTI: questionBank has no items for dimension ${d}`);
+    }
+    if (!questionBank.defaults[d]) {
+      throw new Error(`scoreMBTI: questionBank is missing a default for dimension ${d}`);
+    }
+    if (!questionBank.poles[d] || !questionBank.poles[d].first || !questionBank.poles[d].second) {
+      throw new Error(`scoreMBTI: questionBank is missing poles for dimension ${d}`);
+    }
+  }
   if (responses.length !== questionBank.items.length) {
     throw new Error(
       `scoreMBTI: expected ${questionBank.items.length} responses, got ${responses.length}`
