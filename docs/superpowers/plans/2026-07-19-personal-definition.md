@@ -37,6 +37,7 @@ Paths below are **relative to the product repo root** (`lib/personal-definition/
 ```
 lib/personal-definition/
 ├── types.ts                              # shared interfaces, no logic
+├── date.ts                               # parseBirthDate, calendar validation
 ├── normalize.ts                          # Vietnamese → A-Z
 ├── zodiac.ts                             # calculateZodiac
 ├── numerology.ts                         # calculateNumerology
@@ -50,6 +51,7 @@ lib/personal-definition/
 │   ├── templates.json                    # narrative fragments
 │   └── universities.json                 # ~50 schools
 └── __tests__/
+    ├── date.test.ts
     ├── normalize.test.ts
     ├── zodiac.test.ts
     ├── numerology.test.ts
@@ -610,6 +612,11 @@ describe("calculateNumerology", () => {
   it("rejects a malformed date", () => {
     expect(() => calculateNumerology("01-01-2000", "Duc")).toThrow(/YYYY-MM-DD/);
   });
+
+  it("rejects a well-formed but impossible calendar date", () => {
+    expect(() => calculateNumerology("2000-02-30", "Duc")).toThrow(/not a real date/);
+    expect(() => calculateNumerology("2000-13-01", "Duc")).toThrow(/not a real date/);
+  });
 });
 ```
 
@@ -625,6 +632,7 @@ Expected: FAIL — `Failed to resolve import "../numerology"`.
 ```typescript
 import type { NumerologyResult } from "./types";
 import { normalizeVietnamese } from "./normalize";
+import { parseBirthDate } from "./date";
 import interpretations from "./data/numerology-interpretations.json";
 
 const PYTHAGOREAN: Record<string, number> = {
@@ -670,22 +678,12 @@ export function calculateNumerology(
   birthDate: string,
   fullName: string
 ): NumerologyResult {
-  if (!/^\d{4}-\d{2}-\d{2}$/.test(birthDate)) {
-    throw new Error(
-      `calculateNumerology: expected YYYY-MM-DD, got "${birthDate}"`
-    );
-  }
+  const { year, month, day } = parseBirthDate(birthDate, "calculateNumerology");
 
   const letters = normalizeVietnamese(fullName);
   if (letters.length === 0) {
     throw new Error("calculateNumerology: name has no mappable letters");
   }
-
-  const [year, month, day] = birthDate.split("-").map(Number) as [
-    number,
-    number,
-    number
-  ];
 
   const life_path = reduceNumber(
     reduceNumber(day) + reduceNumber(month) + reduceNumber(year)
