@@ -1,8 +1,14 @@
 # Personal Definition Agent — Design Spec
 
+> **⚠ SUPERSEDED (2026-07-19).** The current spec is
+> [`docs/superpowers/specs/2026-07-19-personal-definition-design.md`](docs/superpowers/specs/2026-07-19-personal-definition-design.md).
+> Kept for history — do not build from this file. Changed since: MBTI quiz is now
+> 40 Likert items with a defined scoring formula, the undefined "80/20 blend" was
+> replaced by explicit layer separation, and numerology expanded from 2 numbers to 4.
+
 **Date:** 2026-06-26
 **Revised:** 2026-07-15 — removed referral/streaks/rewards; removed all LLM/Claude usage (fully deterministic flow)
-**Status:** Draft
+**Status:** Superseded
 **Scope:** Buddy Agent Step 1 — Personal Definition
 
 ---
