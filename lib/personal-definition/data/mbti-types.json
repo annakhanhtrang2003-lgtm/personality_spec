@@ -1,0 +1,35 @@
+{
+  "INFP": {
+    "label": "Người Hoà Giải",
+    "traits": ["giàu giá trị nội tâm", "đồng cảm", "sáng tạo", "kín đáo"],
+    "strengths": [
+      "Nhìn ra điều người khác đang thực sự cần, kể cả khi họ không nói ra",
+      "Giữ vững điều mình tin là đúng dù không ai ủng hộ",
+      "Diễn đạt ý tưởng trừu tượng thành câu chữ dễ chạm",
+      "Làm việc bền bỉ với thứ mình thấy có ý nghĩa",
+      "Tạo không gian an toàn để người khác mở lòng"
+    ],
+    "growth_areas": [
+      "Dễ trì hoãn việc mình không thấy ý nghĩa, kể cả khi nó cần thiết",
+      "Nhận góp ý theo hướng cá nhân hoá dù người góp ý không có ý đó",
+      "Ngại nói ra nhu cầu của mình trong nhóm"
+    ],
+    "personality_keywords": ["nội tâm", "lý tưởng", "đồng cảm", "sáng tạo", "chân thành", "linh hoạt"],
+    "career_hints": ["viết lách và nội dung", "thiết kế", "tâm lý và tham vấn", "giáo dục", "phát triển cộng đồng", "nghiên cứu xã hội"]
+  },
+  "INFJ": { "label": "", "traits": [], "strengths": [], "growth_areas": [], "personality_keywords": [], "career_hints": [] },
+  "INTP": { "label": "", "traits": [], "strengths": [], "growth_areas": [], "personality_keywords": [], "career_hints": [] },
+  "INTJ": { "label": "", "traits": [], "strengths": [], "growth_areas": [], "personality_keywords": [], "career_hints": [] },
+  "ISFP": { "label": "", "traits": [], "strengths": [], "growth_areas": [], "personality_keywords": [], "career_hints": [] },
+  "ISFJ": { "label": "", "traits": [], "strengths": [], "growth_areas": [], "personality_keywords": [], "career_hints": [] },
+  "ISTP": { "label": "", "traits": [], "strengths": [], "growth_areas": [], "personality_keywords": [], "career_hints": [] },
+  "ISTJ": { "label": "", "traits": [], "strengths": [], "growth_areas": [], "personality_keywords": [], "career_hints": [] },
+  "ENFP": { "label": "", "traits": [], "strengths": [], "growth_areas": [], "personality_keywords": [], "career_hints": [] },
+  "ENFJ": { "label": "", "traits": [], "strengths": [], "growth_areas": [], "personality_keywords": [], "career_hints": [] },
+  "ENTP": { "label": "", "traits": [], "strengths": [], "growth_areas": [], "personality_keywords": [], "career_hints": [] },
+  "ENTJ": { "label": "", "traits": [], "strengths": [], "growth_areas": [], "personality_keywords": [], "career_hints": [] },
+  "ESFP": { "label": "", "traits": [], "strengths": [], "growth_areas": [], "personality_keywords": [], "career_hints": [] },
+  "ESFJ": { "label": "", "traits": [], "strengths": [], "growth_areas": [], "personality_keywords": [], "career_hints": [] },
+  "ESTP": { "label": "", "traits": [], "strengths": [], "growth_areas": [], "personality_keywords": [], "career_hints": [] },
+  "ESTJ": { "label": "", "traits": [], "strengths": [], "growth_areas": [], "personality_keywords": [], "career_hints": [] }
+}

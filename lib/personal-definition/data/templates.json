@@ -1,0 +1,18 @@
+{
+  "intro": {
+    "INFP": "{name} ơi, bạn thuộc nhóm {label} — {trait_line}.",
+    "INFJ": "", "INTP": "", "INTJ": "", "ISFP": "", "ISFJ": "", "ISTP": "", "ISTJ": "",
+    "ENFP": "", "ENFJ": "", "ENTP": "", "ENTJ": "", "ESFP": "", "ESFJ": "", "ESTP": "", "ESTJ": ""
+  },
+  "flavor_element": {
+    "Fire":  "Chút lửa trong bạn khiến bạn bắt đầu mọi thứ bằng nhiệt.",
+    "Earth": "Bạn có nền đất dưới chân — thích chắc chắn trước khi bước.",
+    "Air":   "Bạn sống nhiều trong ý tưởng và những cuộc trò chuyện.",
+    "Water": "Bạn cảm nhận mọi thứ hơi sâu hơn người xung quanh một chút."
+  },
+  "flavor_life_path": {
+    "1": "", "2": "", "3": "", "4": "", "5": "", "6": "",
+    "7": "", "8": "", "9": "", "11": "", "22": "", "33": ""
+  },
+  "closing": "Đây là một góc nhìn về bạn, không phải toàn bộ con người bạn."
+}
