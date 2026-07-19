@@ -53,6 +53,17 @@ export function buildProfile(input: BuildProfileInput): PersonalProfile {
   if (!entry) {
     throw new Error(`buildProfile: no data for MBTI type "${mbti.type}"`);
   }
+  // All 16 keys exist in mbti-types.json as objects, so `entry` is always
+  // truthy — the check above can never fire on its own. Task 11 has only
+  // populated INFP so far; the other 15 entries are present but empty.
+  // Without this second check, an unpopulated type would silently produce
+  // a "complete-looking" profile with empty strengths/career_hints instead
+  // of failing loudly.
+  if (!entry.label || entry.career_hints.length === 0) {
+    throw new Error(
+      `buildProfile: MBTI type "${mbti.type}" has no populated data yet`
+    );
+  }
 
   const intro = fill(T.intro[mbti.type] ?? "", {
     name: input.name,
@@ -77,13 +88,18 @@ export function buildProfile(input: BuildProfileInput): PersonalProfile {
     },
     zodiac,
     numerology,
-    mbti: { ...mbti, traits: entry.traits },
+    mbti: { ...mbti, traits: [...entry.traits] },
     synthesis: {
       narrative,
-      strengths: entry.strengths,
-      growth_areas: entry.growth_areas,
-      personality_keywords: entry.personality_keywords,
-      career_hints: entry.career_hints,
+      // Shallow copies: entry.* are references into the imported
+      // mbti-types.json module object, which is shared and cached across
+      // every call. Returning the arrays as-is would let any caller's
+      // .push()/.sort() on a returned profile corrupt the data for every
+      // subsequent user's profile, process-wide.
+      strengths: [...entry.strengths],
+      growth_areas: [...entry.growth_areas],
+      personality_keywords: [...entry.personality_keywords],
+      career_hints: [...entry.career_hints],
     },
   };
 }
