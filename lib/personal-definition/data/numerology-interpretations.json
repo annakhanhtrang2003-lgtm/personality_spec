@@ -1,6 +1,58 @@
 {
-  "life_path":   { "1": "", "2": "", "3": "", "4": "", "5": "", "6": "", "7": "", "8": "", "9": "", "11": "", "22": "", "33": "" },
-  "expression":  { "1": "", "2": "", "3": "", "4": "", "5": "", "6": "", "7": "", "8": "", "9": "", "11": "", "22": "", "33": "" },
-  "soul_urge":   { "1": "", "2": "", "3": "", "4": "", "5": "", "6": "", "7": "", "8": "", "9": "", "11": "", "22": "", "33": "" },
-  "personality": { "1": "", "2": "", "3": "", "4": "", "5": "", "6": "", "7": "", "8": "", "9": "", "11": "", "22": "", "33": "" }
+  "life_path": {
+    "1": "Bạn hay là người đi trước rồi mới có người theo sau — ý tưởng tự bật ra và bạn muốn bắt tay làm ngay. Bài học lớn thường nằm ở chỗ tự đứng một mình không có nghĩa là phải làm một mình, và nhờ giúp không làm bạn nhỏ đi.",
+    "2": "Hướng đi của bạn ít khi là chạy nhanh nhất, mà là làm cho mọi thứ quanh mình ăn khớp với nhau. Bài học đi kèm là học cách nói ra điều mình muốn, vì giữ hoà khí lâu quá dễ biến thành tự bỏ quên chính mình.",
+    "3": "Bạn học và hiểu mọi thứ qua việc diễn đạt nó ra — nói, viết, vẽ, kể lại cho người khác nghe. Điều đáng để ý là năng lượng của bạn dễ tản ra nhiều hướng cùng lúc, nên thứ cần luyện nhất có khi lại là kiên nhẫn đi hết một việc.",
+    "4": "Bạn xây mọi thứ theo kiểu đặt từng viên gạch, và cái gì bạn dựng lên thường trụ được lâu. Bài học nằm ở chỗ không phải kế hoạch nào cũng chạy đúng như dự tính, và linh hoạt một chút không làm hỏng cái nền bạn đã đắp.",
+    "5": "Bạn đi qua nhiều trải nghiệm hơn số đông và học nhanh nhất khi được đổi môi trường. Đổi lại, thứ khó nhất với bạn thường là ở lại đủ lâu để thấy một việc kết thúc — tự do sẽ đáng giá hơn khi có vài thứ bạn chọn gắn bó.",
+    "6": "Bạn có xu hướng trở thành chỗ dựa của người khác khá sớm, kiểu ai có chuyện cũng tìm tới. Bài học lớn là phân biệt giữa giúp vì thương và giúp vì thấy có lỗi nếu từ chối — bạn cũng nằm trong danh sách cần được chăm.",
+    "7": "Bạn cần hiểu tại sao trước khi tin bất cứ điều gì, nên hay đào sâu hơn người khác một tầng. Điều đáng để ý là suy nghĩ nhiều quá có lúc thành cái hầm trú ẩn, và có những câu trả lời chỉ hiện ra khi bạn bước vào cuộc thay vì đứng nhìn.",
+    "8": "Bạn có bản năng với chuyện tổ chức và kết quả — nhìn ra cái gì tạo ra giá trị thật, cái gì chỉ ồn ào. Điều đáng để ý là bạn dễ đo giá trị bản thân bằng thành tựu, nên thỉnh thoảng hãy tự hỏi mình đang làm cho ai.",
+    "9": "Bạn nhìn mọi chuyện ở tầm rộng và khó thấy vui khi việc mình làm chỉ có mình được lợi. Bài học đi kèm là học cách buông — bạn dễ ôm cả những thứ không phải phần của mình, rồi mệt mà không hiểu vì sao.",
+    "11": "Bạn bắt sóng cảm xúc và không khí xung quanh nhanh hơn mức bình thường, nhiều khi biết có chuyện trước cả khi ai nói ra. Cái khó là hệ thần kinh bạn cũng nhạy y như vậy, nên biết lúc nào cần rút ra nghỉ là kỹ năng sống còn chứ không phải yếu đuối.",
+    "22": "Bạn thấy được bức tranh lớn và đồng thời thấy luôn từng bước cần làm để nó thành thật — hiếm người có cả hai. Điều đáng để ý là bạn hay đặt tiêu chuẩn cao đến mức tự doạ mình đứng im, nên bắt đầu bằng phiên bản nhỏ thường tốt hơn chờ đủ hoàn hảo.",
+    "33": "Bạn có kiểu quan tâm người khác mà không cần ai nhắc, và nhiều người thấy dễ thở khi ở gần bạn. Bài học là học nói \"không\" mà không thấy tội lỗi, vì cho đi từ một cái bình cạn thì chẳng bền được bao lâu."
+  },
+  "expression": {
+    "1": "Khả năng bạn mang theo là khởi động: đưa cho bạn một trang trắng, bạn biết viết dòng đầu tiên trong khi người khác còn đang bàn. Mặt trái là bạn dễ sốt ruột với những việc cần đi chậm và cần nhiều người cùng gật đầu.",
+    "2": "Bạn có tài đọc phòng — biết ai đang lấn cấn, biết câu nào nên nói vào lúc nào. Đây là kỹ năng cực khó dạy, chỉ cần nhớ nó chỉ có giá khi bạn dám dùng nó để nói cả những điều khó nghe.",
+    "3": "Bạn có khả năng làm cho một ý phức tạp trở nên dễ nghe, dễ nhớ, đôi khi còn buồn cười nữa. Chỉ là sự duyên dáng đó dễ thành một lớp vỏ, nên thỉnh thoảng hãy để người ta thấy phần chưa được đánh bóng.",
+    "4": "Thứ bạn mang theo là khả năng biến một ý tưởng mơ hồ thành danh sách việc chạy được, rồi chạy tới cùng. Điểm cần để ý là bạn hay tự nhận hết phần khó vì thấy tự làm nhanh hơn giải thích, rồi gánh nhiều hơn phần của mình.",
+    "5": "Bạn thích ứng nhanh: đổi bối cảnh, đổi cách nói, đổi nhịp mà không thấy chật vật. Khả năng này khiến bạn đi đâu cũng sống được, chỉ cần cẩn thận đừng để nó thành lý do bỏ dở mỗi khi mọi thứ bắt đầu nhàm.",
+    "6": "Bạn có khả năng làm cho một nhóm người thấy như đang ở nhà — nhớ chi tiết nhỏ, để ý ai đang bị bỏ ra ngoài. Chỉ cần nhớ chăm sóc khác với sửa chữa, và không phải ai cũng đang chờ được bạn cứu.",
+    "7": "Bạn giỏi bóc một vấn đề ra tới lớp cuối cùng và nhìn ra chỗ lập luận bị hở. Điều đáng để ý là kết luận trong đầu bạn chỉ có ích khi nó ra khỏi đầu bạn, nên tập nói ra sớm hơn mức bạn thấy thoải mái.",
+    "8": "Bạn có khiếu nhìn ra cấu trúc: ai là người quyết, nguồn lực chảy đi đâu, đòn bẩy nằm chỗ nào. Khả năng này giúp bạn đi nhanh, miễn là bạn nhớ hỏi thêm một câu — thắng chuyện này thì ai chịu phần thiệt.",
+    "9": "Bạn có khả năng làm cho người khác cảm thấy được nhìn thấy, kể cả người mới gặp lần đầu. Đi cùng nó là xu hướng lý tưởng hoá, nên đôi khi bạn cần chấp nhận người ta đúng như họ đang là chứ không phải bản tốt nhất bạn tưởng tượng.",
+    "11": "Bạn có khả năng gọi tên được cái điều mà cả phòng đang cảm nhưng chưa ai nói ra. Khi bạn thật sự tin vào nó thì nó truyền được sang người khác, nên phần việc lớn của bạn là học cách tin mình trước.",
+    "22": "Bạn mang theo khả năng nối tầm nhìn với vận hành — vừa mơ được, vừa dựng được lịch trình cho giấc mơ đó. Điều cần để ý là những việc bạn chọn thường lớn và dài, nên hãy chia mốc nhỏ để còn thấy mình đang tiến chứ không chỉ thấy đường xa.",
+    "33": "Bạn có khả năng nâng người khác lên bằng cách sống tử tế chứ không cần lên lớp ai. Chỉ là kiểu ảnh hưởng này tốn năng lượng thật, nên nạp lại cho mình là một phần việc, không phải phần thưởng."
+  },
+  "soul_urge": {
+    "1": "Sâu bên trong, bạn muốn được là chính mình mà không phải xin phép ai — muốn dấu vân tay của mình nằm trên thứ mình làm. Mong muốn đó rất lành, chỉ cần để ý lúc nó lặng lẽ biến thành nhu cầu phải hơn người khác.",
+    "2": "Thứ bạn thật sự muốn là cảm giác an toàn trong một mối quan hệ — nơi bạn không phải diễn, không phải dè chừng. Vì vậy bạn hay đoán ý người khác nhiều hơn cần thiết, trong khi câu trả lời đôi khi chỉ là hỏi thẳng.",
+    "3": "Bên trong, bạn khao khát được nghe thấy — không hẳn là nổi tiếng, mà là có người thật sự hiểu điều bạn đang nói. Khi thiếu chỗ đó, bạn dễ nói to hơn hoặc vui vẻ hơn mức mình đang thấy.",
+    "4": "Điều bạn muốn nhất thường là mặt đất chắc dưới chân: biết ngày mai ra sao, biết mình dựa vào được cái gì. Sự bình yên đó có thật, chỉ cần nhớ đôi khi bạn gọi việc trốn rủi ro là sự ổn định.",
+    "5": "Bên trong bạn có một nhu cầu rất mạnh là không bị nhốt — trong một lịch trình, một vai, hay một phiên bản của chính mình. Điều đáng để ý là tự do đôi khi bị nhầm với việc rời đi ngay trước lúc mọi chuyện trở nên khó.",
+    "6": "Thứ bạn thật sự muốn là được cần đến, được thuộc về một nhóm người mình thương. Nhu cầu đó đẹp, chỉ nên để ý xem bạn có đang mua chỗ đứng của mình bằng cách gánh hết việc cho người khác không.",
+    "7": "Bên trong, bạn muốn hiểu — muốn sự thật hơn là sự dễ chịu, kể cả khi sự thật hơi lạnh. Bạn cũng cần khoảng riêng nhiều hơn mức bạn dám thừa nhận, và nói ra điều đó sớm sẽ đỡ cho cả bạn lẫn người quanh bạn.",
+    "8": "Điều bạn muốn sâu bên trong là cảm giác tự chủ — không phải hỏi xin ai, không bị kẹt vì thiếu nguồn lực. Đáng để ý là bạn hay hoãn niềm vui tới \"khi nào đủ\", mà cái mốc đủ đó thì có thói quen chạy xa dần.",
+    "9": "Bạn muốn việc mình làm có nghĩa với ai đó ngoài mình — thiếu điều đó thì thành công cũng thấy nhạt. Chỉ cần cẩn thận, một ý nghĩa lớn dễ khiến bạn bỏ qua những nhu cầu rất bình thường của bản thân.",
+    "11": "Bên trong bạn có mong muốn được kết nối với cái gì đó lớn hơn chuyện cơm áo hằng ngày. Bạn cũng nhạy hơn mức bạn hay nói ra, nên chọn người để mở lòng và chọn không gian để ở lại quan trọng với bạn hơn với phần lớn mọi người.",
+    "22": "Thứ bạn thật sự muốn là để lại một cái gì đó còn ở lại sau khi mình rời đi — không phải danh, mà là thứ vẫn chạy được. Nhu cầu đó dễ đè lên hiện tại, nên nhớ hỏi hôm nay mình có đang sống không, hay chỉ đang xây.",
+    "33": "Bên trong, bạn muốn thấy người mình thương ổn hơn, và bạn cảm được nỗi buồn của họ gần như của chính mình. Đó là một món quà, cũng là chỗ dễ kiệt sức — thương người thì cần cả ranh giới chứ không chỉ cần lòng tốt."
+  },
+  "personality": {
+    "1": "Người mới gặp thường thấy bạn khá rõ ràng và có chủ kiến, kiểu người biết mình muốn gì. Một số người thấy vậy là chắc chắn, số khác thấy hơi khó gần, nên mềm giọng một chút thường mở cửa nhanh hơn.",
+    "2": "Ấn tượng đầu bạn để lại thường là dễ chịu và biết lắng nghe — người ta hay kể chuyện với bạn nhanh hơn họ định. Mặt sau của điều đó là người khác cũng dễ đánh giá thấp mức cứng rắn bạn có bên trong.",
+    "3": "Bạn thường được nhớ như người vui, nói chuyện có duyên, làm không khí nhẹ đi. Chỉ là lớp ngoài đó nhiều lúc che mất phần nghiêm túc của bạn, nên có người mất khá lâu mới nhận ra bạn sâu tới đâu.",
+    "4": "Người khác hay thấy bạn đáng tin trước khi thấy bạn thú vị — kiểu người nói gì làm nấy. Ấn tượng ấy có giá của nó, chỉ cần cẩn thận đừng để nó đóng khung bạn thành người lúc nào cũng phải làm chỗ dựa.",
+    "5": "Bạn thường được nhìn như người dễ bắt chuyện, có gì đó mới mẻ, đi đâu cũng hoà được. Đổi lại, người ta có thể mất thời gian mới tin là bạn sẽ ở lại, nên vài sự đều đặn nhỏ lại là thứ nói giúp bạn nhiều nhất.",
+    "6": "Người mới gặp thường thấy bạn ấm và an toàn, kiểu người dễ nhờ vả. Vì vậy bạn hay bị mặc định là sẽ nhận lời, và việc từ chối sớm sẽ đỡ cho bạn rất nhiều về sau.",
+    "7": "Bạn hay bị đọc là kín và hơi xa cách lúc đầu, dù trong đầu bạn đang quan sát rất kỹ. Nói ra một câu nhỏ về mình sớm hơn thường đủ để người ta biết bạn đang mở chứ không phải đang lạnh.",
+    "8": "Người khác thường thấy ở bạn một sự chững chạc, kiểu người có thể giao việc quan trọng. Cái giá là ít ai nghĩ tới chuyện hỏi bạn có ổn không, nên bạn có thể phải chủ động nói ra khi mình đang đuối.",
+    "9": "Ấn tượng bạn để lại hay là dễ gần và không phán xét — người ta thấy được chấp nhận khi ngồi cạnh bạn. Chỉ là bạn cũng dễ giữ khoảng cách mà không ai nhận ra, vì bạn hỏi về họ nhiều hơn là kể về mình.",
+    "11": "Bạn thường tạo cảm giác hơi khác một chút, khó xếp ngay vào nhóm nào. Có người bị cuốn theo, có người thấy bạn khó đoán, nên nói rõ ý mình sớm sẽ giúp người khác đỡ tự suy diễn.",
+    "22": "Người khác hay thấy ở bạn sự điềm tĩnh và cảm giác bạn đang bận tâm chuyện gì đó lớn hơn cuộc trò chuyện này. Điều đó tạo tín nhiệm nhanh, đồng thời làm người ta hơi ngại kể với bạn những chuyện nhỏ.",
+    "33": "Bạn thường được cảm nhận là người dễ mở lòng cùng, kiểu ở gần thấy nhẹ người. Vì vậy bạn nhận được nhiều tâm sự hơn mức bạn xin, và biết lúc nào cần khép cửa lại là việc bạn nên chủ động."
+  }
 }

@@ -2,6 +2,7 @@ import { describe, it, expect } from "vitest";
 import bank from "../data/questions.json";
 import types from "../data/mbti-types.json";
 import templates from "../data/templates.json";
+import interpretations from "../data/numerology-interpretations.json";
 
 const DIMENSIONS = ["EI", "SN", "TF", "JP"] as const;
 
@@ -128,5 +129,25 @@ describe("templates.json shape", () => {
 
   it("always carries the closing caveat", () => {
     expect(templates.closing).toContain("không phải toàn bộ con người bạn");
+  });
+});
+
+describe("numerology interpretations content", () => {
+  const KINDS = ["life_path", "expression", "soul_urge", "personality"] as const;
+  const VALUES = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "11", "22", "33"] as const;
+
+  it("covers every kind and value", () => {
+    for (const k of KINDS) {
+      for (const v of VALUES) {
+        expect(interpretations[k][v]?.length, `${k}.${v}`).toBeGreaterThan(40);
+      }
+    }
+  });
+
+  it("does not reuse the same passage across kinds", () => {
+    for (const v of VALUES) {
+      const passages = KINDS.map((k) => interpretations[k][v]);
+      expect(new Set(passages).size, `value ${v} reused across kinds`).toBe(4);
+    }
   });
 });
