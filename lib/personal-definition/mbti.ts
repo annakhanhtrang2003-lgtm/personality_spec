@@ -30,11 +30,16 @@ const DIMENSIONS: Dimension[] = ["EI", "SN", "TF", "JP"];
  * S = 0 is genuinely reachable — all-neutral answers, or balanced
  * disagreement — so it resolves to the pole declared in the bank rather
  * than to whichever branch happens to come first. Spec §4.3.
+ *
+ * `bank` defaults to the shipped question bank; Task 8 calls scoreMBTI
+ * with a single argument, so that call site is unaffected. The parameter
+ * exists so tests can exercise the tie-default rule against a bank whose
+ * `defaults` differ from its `second` poles.
  */
-export function scoreMBTI(responses: Response[]): MBTIResult {
-  if (responses.length !== BANK.items.length) {
+export function scoreMBTI(responses: Response[], questionBank: QuestionBank = BANK): MBTIResult {
+  if (responses.length !== questionBank.items.length) {
     throw new Error(
-      `scoreMBTI: expected ${BANK.items.length} responses, got ${responses.length}`
+      `scoreMBTI: expected ${questionBank.items.length} responses, got ${responses.length}`
     );
   }
   for (const [index, r] of responses.entries()) {
@@ -46,7 +51,7 @@ export function scoreMBTI(responses: Response[]): MBTIResult {
   const raw: Record<Dimension, number> = { EI: 0, SN: 0, TF: 0, JP: 0 };
   const counts: Record<Dimension, number> = { EI: 0, SN: 0, TF: 0, JP: 0 };
 
-  BANK.items.forEach((item, index) => {
+  questionBank.items.forEach((item, index) => {
     raw[item.dimension] += responses[index]! * item.key;
     counts[item.dimension] += 1;
   });
@@ -59,18 +64,20 @@ export function scoreMBTI(responses: Response[]): MBTIResult {
     const s = raw[d];
     const first = ((s + span) / (span * 2)) * 100;
 
+    const roundedFirst = Number(first.toFixed(1));
+
     dimensions[d] = {
       raw: s,
-      first: Number(first.toFixed(1)),
-      second: Number((100 - first).toFixed(1)),
+      first: roundedFirst,
+      second: Number((100 - roundedFirst).toFixed(1)),
     };
 
     type +=
       s > 0
-        ? BANK.poles[d].first
+        ? questionBank.poles[d].first
         : s < 0
-          ? BANK.poles[d].second
-          : BANK.defaults[d];
+          ? questionBank.poles[d].second
+          : questionBank.defaults[d];
   }
 
   return { type, dimensions, traits: [] };
