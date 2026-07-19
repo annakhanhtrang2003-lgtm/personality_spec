@@ -173,17 +173,23 @@ percent(firstPole) = (S + 20) / 40 × 100
 
 **Output:**
 ```typescript
+interface DimensionScore {
+  raw: number;      // S, -20…+20
+  first: number;    // % toward the dimension's first pole (E, S, T, J)
+  second: number;   // % toward the second pole (I, N, F, P); always 100 - first
+}
+
 interface MBTIResult {
-  type: string;                                  // "ENFJ"
-  dimensions: {
-    EI: { raw: number; E: number; I: number };   // raw = S, -20…20; E,I = percentages
-    SN: { raw: number; S: number; N: number };
-    TF: { raw: number; T: number; F: number };
-    JP: { raw: number; J: number; P: number };
-  };
-  traits: string[];                              // from types.json
+  type: string;                              // "ENFJ"
+  dimensions: Record<Dimension, DimensionScore>;
+  traits: string[];                          // from mbti-types.json
 }
 ```
+
+`first`/`second` rather than letter keys (`{ E, I }`): letter keys require a
+distinct object type per dimension, which cannot be expressed as
+`Record<Dimension, …>` and forces a cast at every read. Which letter each
+position refers to is declared in the question bank's `poles` block.
 
 **On `S = 0`.** With 40 items and a neutral option this is genuinely reachable (all-neutral responses, or balanced disagreement), so it needs a real rule rather than an afterthought. Each dimension declares a default pole in the data file. The defaults are I, N, F, P — the less socially-desirable pole of each pair — so that any residual acquiescence does not quietly push the population toward ESTJ.
 
@@ -386,12 +392,11 @@ interface PersonalProfile {
 
   mbti: {
     type: string;
-    dimensions: {
-      EI: { raw: number; E: number; I: number };
-      SN: { raw: number; S: number; N: number };
-      TF: { raw: number; T: number; F: number };
-      JP: { raw: number; J: number; P: number };
-    };
+    dimensions: Record<Dimension, {
+      raw: number;      // -20…+20
+      first: number;    // % toward E / S / T / J
+      second: number;   // % toward I / N / F / P, always 100 - first
+    }>;
     traits: string[];
   };
 

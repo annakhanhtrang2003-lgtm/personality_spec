@@ -191,7 +191,7 @@ export interface PersonalProfile {
 }
 ```
 
-> **Deviation from spec §13 — deliberate, and the spec should be updated to match.**
+> **Dimension score shape** (spec §13 was amended to match this on 2026-07-19).
 > The spec types dimensions with letter keys (`EI: { raw, E, I }`). That needs a
 > different object type per dimension, which makes `Record<Dimension, …>`
 > impossible and forces a cast at every read. This plan uses uniform
