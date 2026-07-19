@@ -54,4 +54,17 @@ describe("calculateZodiac", () => {
     expect(() => calculateZodiac("2003-13-45")).toThrow(/not a real date/);
     expect(() => calculateZodiac("2003-00-00")).toThrow(/not a real date/);
   });
+
+  // r.traits was previously a reference into the imported zodiac-signs.json
+  // module object, which Node caches and shares across every
+  // calculateZodiac() call in the process. Mutating a returned result's
+  // traits array would silently corrupt that sign's data for every
+  // subsequent call, process-wide.
+  it("returns a traits array that is safe to mutate — a fresh call is unaffected", () => {
+    const r = calculateZodiac("2003-06-15"); // Song Tử
+    r.traits.push("PROBE_MUTATED");
+
+    const fresh = calculateZodiac("2003-06-15");
+    expect(fresh.traits).not.toContain("PROBE_MUTATED");
+  });
 });

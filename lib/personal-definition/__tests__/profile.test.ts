@@ -146,6 +146,11 @@ describe("buildProfile", () => {
     p.synthesis.personality_keywords.push("MUTATED");
     p.synthesis.career_hints.push("MUTATED");
     p.mbti.traits.push("MUTATED");
+    // zodiac.traits is a reference into the imported zodiac-signs.json
+    // module object, same failure class as the five arrays above — a
+    // caller mutating it would corrupt that sign's data for every
+    // subsequent buildProfile()/calculateZodiac() call in the process.
+    p.zodiac.traits.push("MUTATED");
 
     const fresh = buildProfile({ ...BASE, birth_date: "2003-06-15" });
     expect(fresh.synthesis.strengths).not.toContain("MUTATED");
@@ -153,6 +158,7 @@ describe("buildProfile", () => {
     expect(fresh.synthesis.personality_keywords).not.toContain("MUTATED");
     expect(fresh.synthesis.career_hints).not.toContain("MUTATED");
     expect(fresh.mbti.traits).not.toContain("MUTATED");
+    expect(fresh.zodiac.traits).not.toContain("MUTATED");
   });
 
   // The `if (!entry)` guard in profile.ts can never fire on its own — all 16

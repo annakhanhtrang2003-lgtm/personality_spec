@@ -49,6 +49,11 @@ export function calculateZodiac(birthDate: string): ZodiacResult {
     rising_sign: null,
     element: row.element,
     modality: row.modality,
-    traits: row.traits,
+    // Shallow copy: row.traits is a reference into the imported
+    // zodiac-signs.json module object, which Node caches and shares across
+    // every calculateZodiac() call in the process. Returning it as-is would
+    // let a caller's .push()/.sort() on a returned result corrupt that
+    // sign's data for every subsequent call, process-wide.
+    traits: [...row.traits],
   };
 }
