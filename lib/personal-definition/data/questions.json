@@ -1,5 +1,5 @@
 {
-  "size": 8,
+  "size": 40,
   "defaults": { "EI": "I", "SN": "N", "TF": "F", "JP": "P" },
   "poles": {
     "EI": { "first": "E", "second": "I" },
@@ -7,14 +7,65 @@
     "TF": { "first": "T", "second": "F" },
     "JP": { "first": "J", "second": "P" }
   },
+  "pole_definitions": {
+    "E": "Lấy lại năng lượng từ tương tác với người khác; nghĩ bằng cách nói ra.",
+    "I": "Lấy lại năng lượng khi ở một mình; nghĩ xong rồi mới nói.",
+    "S": "Tin vào thông tin cụ thể, quan sát được, đã kiểm chứng.",
+    "N": "Chú ý tới mẫu hình, khả năng, ý nghĩa phía sau thông tin.",
+    "T": "Ra quyết định dựa trên tính nhất quán và logic của vấn đề.",
+    "F": "Ra quyết định dựa trên giá trị và tác động lên con người.",
+    "J": "Thấy dễ chịu khi mọi thứ được quyết định và có kế hoạch.",
+    "P": "Thấy dễ chịu khi giữ phương án mở và ứng biến."
+  },
   "items": [
     { "id": "ei_01", "dimension": "EI", "key":  1, "text": "Ở chỗ đông người, tôi thường là người bắt chuyện trước." },
-    { "id": "ei_02", "dimension": "EI", "key": -1, "text": "Sau một buổi họp nhóm đông người, tôi thấy cạn năng lượng." },
+    { "id": "sn_06", "dimension": "SN", "key": -1, "text": "Tôi hay nghĩ tới việc mọi thứ có thể trở thành cái gì trong tương lai." },
+    { "id": "tf_06", "dimension": "TF", "key": -1, "text": "Trước khi quyết định, tôi cân nhắc quyết định đó ảnh hưởng tới cảm xúc của ai." },
+    { "id": "jp_01", "dimension": "JP", "key":  1, "text": "Trước kỳ thi, tôi lập một lịch ôn cụ thể ngay từ đầu." },
+
+    { "id": "ei_06", "dimension": "EI", "key": -1, "text": "Sau một buổi họp nhóm đông người, tôi thấy cạn năng lượng." },
     { "id": "sn_01", "dimension": "SN", "key":  1, "text": "Tôi tin vào những gì mình quan sát được hơn là linh cảm." },
-    { "id": "sn_02", "dimension": "SN", "key": -1, "text": "Tôi hay nghĩ tới việc mọi thứ có thể trở thành cái gì trong tương lai." },
     { "id": "tf_01", "dimension": "TF", "key":  1, "text": "Khi góp ý cho bạn, tôi nói thẳng vấn đề dù hơi khó nghe." },
-    { "id": "tf_02", "dimension": "TF", "key": -1, "text": "Trước khi quyết định, tôi cân nhắc quyết định đó ảnh hưởng tới cảm xúc của ai." },
-    { "id": "jp_01", "dimension": "JP", "key":  1, "text": "Tôi lên kế hoạch cho kỳ thi từ sớm và bám theo lịch đã đặt." },
-    { "id": "jp_02", "dimension": "JP", "key": -1, "text": "Tôi làm việc hiệu quả nhất khi để mọi thứ linh hoạt tới phút cuối." }
+    { "id": "jp_06", "dimension": "JP", "key": -1, "text": "Tôi làm việc hiệu quả nhất khi để mọi thứ linh hoạt tới phút cuối." },
+
+    { "id": "ei_02", "dimension": "EI", "key":  1, "text": "Sau buổi giao lưu câu lạc bộ đông người, tôi về nhà vẫn thấy hứng khởi." },
+    { "id": "sn_07", "dimension": "SN", "key": -1, "text": "Đọc một tin tức, tôi liên hệ ngay tới mấy chuyện khác có vẻ liên quan." },
+    { "id": "tf_07", "dimension": "TF", "key": -1, "text": "Bạn cùng nhóm đang buồn là tôi nhận ra ngay, dù bạn không nói gì." },
+    { "id": "jp_02", "dimension": "JP", "key":  1, "text": "Deadline nộp bài thì tôi thường xong trước hạn vài ngày." },
+
+    { "id": "ei_07", "dimension": "EI", "key": -1, "text": "Cuối tuần lý tưởng của tôi là ở nhà một mình làm việc mình thích." },
+    { "id": "sn_02", "dimension": "SN", "key":  1, "text": "Khi nhận đề tài mới, tôi muốn xem một ví dụ cụ thể trước đã." },
+    { "id": "tf_02", "dimension": "TF", "key":  1, "text": "Tranh luận trong nhóm, tôi bị thuyết phục bởi lập luận chặt chẽ." },
+    { "id": "jp_07", "dimension": "JP", "key": -1, "text": "Kế hoạch của tôi hay đổi giữa chừng, và tôi thấy vậy cũng bình thường." },
+
+    { "id": "ei_03", "dimension": "EI", "key":  1, "text": "Nghĩ chưa ra thì tôi nói ra cho bạn nghe, nói tới đâu sáng ra tới đó." },
+    { "id": "sn_08", "dimension": "SN", "key": -1, "text": "Trong đầu tôi hay bật ra ý tưởng lạ giữa lúc đang làm việc khác." },
+    { "id": "tf_08", "dimension": "TF", "key": -1, "text": "Tôi chọn cách nói nhẹ đi một chút để người nghe đỡ tổn thương." },
+    { "id": "jp_03", "dimension": "JP", "key":  1, "text": "To-do list gạch xong từng dòng làm tôi thấy dễ chịu." },
+
+    { "id": "ei_08", "dimension": "EI", "key": -1, "text": "Tôi cần nghĩ xong trong đầu rồi mới phát biểu trước lớp." },
+    { "id": "sn_03", "dimension": "SN", "key":  1, "text": "Lúc học bài, tôi nhớ chi tiết và số liệu khá rõ." },
+    { "id": "tf_03", "dimension": "TF", "key":  1, "text": "Chia việc nhóm, tôi giao phần quan trọng cho người làm tốt nhất." },
+    { "id": "jp_08", "dimension": "JP", "key": -1, "text": "Có bạn rủ đi chơi đột xuất là tôi đi luôn, chẳng cần tính trước." },
+
+    { "id": "ei_04", "dimension": "EI", "key":  1, "text": "Giờ nghỉ giữa hai tiết học, tôi hay sang bàn khác tán gẫu." },
+    { "id": "sn_09", "dimension": "SN", "key": -1, "text": "Với bài tập nhóm, tôi thích đề xuất một cách làm khác mẫu có sẵn." },
+    { "id": "tf_09", "dimension": "TF", "key": -1, "text": "Kỳ vọng của gia đình là điều tôi cân nhắc nhiều khi ra quyết định lớn." },
+    { "id": "jp_04", "dimension": "JP", "key":  1, "text": "Đi chơi xa với bạn bè, tôi muốn chốt lịch trình từ trước." },
+
+    { "id": "ei_09", "dimension": "EI", "key": -1, "text": "Tết đông họ hàng, tôi hay tìm một góc yên tĩnh để nghỉ một lát." },
+    { "id": "sn_04", "dimension": "SN", "key":  1, "text": "Đi thực tập, tôi thích được chỉ rõ từng bước phải làm." },
+    { "id": "tf_04", "dimension": "TF", "key":  1, "text": "Đứng trước lựa chọn khó, tôi liệt kê được mất rồi chọn phương án hợp lý nhất." },
+    { "id": "jp_09", "dimension": "JP", "key": -1, "text": "Chọn chỗ thực tập, tôi muốn giữ nhiều lựa chọn mở càng lâu càng tốt." },
+
+    { "id": "ei_05", "dimension": "EI", "key":  1, "text": "Làm thêm ở quán, tôi thấy vui vì được nói chuyện với nhiều người." },
+    { "id": "sn_10", "dimension": "SN", "key": -1, "text": "Điều làm tôi tò mò nhất là ý nghĩa phía sau những gì đang xảy ra." },
+    { "id": "tf_10", "dimension": "TF", "key": -1, "text": "Với tôi, cả nhóm vui vẻ với nhau quan trọng không kém kết quả cuối cùng." },
+    { "id": "jp_05", "dimension": "JP", "key":  1, "text": "Việc còn dang dở làm tôi khó tập trung sang việc khác." },
+
+    { "id": "ei_10", "dimension": "EI", "key": -1, "text": "Tôi thân sâu với vài người bạn hơn là quen biết thật rộng." },
+    { "id": "sn_05", "dimension": "SN", "key":  1, "text": "Nghe ai kể chuyện, tôi hay hỏi lại chuyện đó diễn ra chính xác thế nào." },
+    { "id": "tf_05", "dimension": "TF", "key":  1, "text": "Một quy định đã đặt ra thì nên áp dụng như nhau với tất cả mọi người." },
+    { "id": "jp_10", "dimension": "JP", "key": -1, "text": "Tôi bắt đầu làm trước rồi vừa làm vừa điều chỉnh." }
   ]
 }

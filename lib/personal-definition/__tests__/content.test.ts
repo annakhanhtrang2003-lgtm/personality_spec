@@ -65,6 +65,39 @@ describe("question bank integrity", () => {
   });
 });
 
+describe("question bank content", () => {
+  it("is the full 40 items", () => {
+    expect(bank.size).toBe(40);
+    expect(bank.items).toHaveLength(40);
+  });
+
+  it("defines all eight poles", () => {
+    for (const p of ["E", "I", "S", "N", "T", "F", "J", "P"] as const) {
+      expect(bank.pole_definitions[p]?.length, `pole ${p}`).toBeGreaterThan(20);
+    }
+  });
+
+  it("has no duplicate item text", () => {
+    const texts = bank.items.map((i) => i.text.trim());
+    expect(new Set(texts).size).toBe(texts.length);
+  });
+
+  it("does not open every item the same way", () => {
+    const openings = bank.items.map((i) => i.text.split(" ").slice(0, 2).join(" "));
+    const commonest = Math.max(
+      ...[...new Set(openings)].map((o) => openings.filter((x) => x === o).length)
+    );
+    expect(commonest).toBeLessThanOrEqual(12);
+  });
+
+  it("keeps items free of type and career names", () => {
+    const banned = /\b(INFP|ENFJ|ESTJ|hướng nội|hướng ngoại|nghề|ngành)\b/i;
+    for (const i of bank.items) {
+      expect(banned.test(i.text), `item ${i.id}: ${i.text}`).toBe(false);
+    }
+  });
+});
+
 describe("mbti-types.json shape", () => {
   it("has an entry for all 16 types", () => {
     expect(Object.keys(types).sort()).toEqual([...ALL_TYPES].sort());
