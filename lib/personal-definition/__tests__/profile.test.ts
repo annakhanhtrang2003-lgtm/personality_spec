@@ -2,9 +2,40 @@ import { describe, it, expect } from "vitest";
 import { buildProfile } from "../profile";
 import { scoreMBTI } from "../mbti";
 import bank from "../data/questions.json";
+import typeData from "../data/mbti-types.json";
+import templatesData from "../data/templates.json";
 import type { Response } from "../types";
 
 const NEUTRAL = (): Response[] => bank.items.map(() => 0 as Response);
+
+const ALL_TYPES = [
+  "INFP", "INFJ", "INTP", "INTJ", "ISFP", "ISFJ", "ISTP", "ISTJ",
+  "ENFP", "ENFJ", "ENTP", "ENTJ", "ESFP", "ESFJ", "ESTP", "ESTJ",
+] as const;
+
+// Widened out of the JSON import's literal shape so it can be indexed by
+// an item's `dimension` string without TS7053.
+const POLES: Record<string, { first: string; second: string }> = bank.poles;
+const templates = templatesData as { flavor_life_path: Record<string, string> };
+const DIM_ORDER = ["EI", "SN", "TF", "JP"] as const;
+
+/**
+ * Build the response vector that scores to `type`.
+ *
+ * Per scoreMBTI, an item contributes `response * key` to its dimension, so
+ * answering `2 * key` drives the dimension positive (its first pole) and
+ * `-2 * key` drives it negative (its second pole). Derived from the bank's
+ * declared poles rather than hardcoded, so a rebalanced or regrown bank
+ * does not silently invert this.
+ */
+function responsesForType(type: string): Response[] {
+  return bank.items.map((item) => {
+    const dimIndex = DIM_ORDER.indexOf(item.dimension as (typeof DIM_ORDER)[number]);
+    const wanted = type[dimIndex];
+    const sign = wanted === POLES[item.dimension]!.first ? 1 : -1;
+    return (2 * item.key * sign) as Response;
+  });
+}
 
 const BASE = {
   name: "Khánh",
@@ -75,6 +106,27 @@ describe("buildProfile", () => {
     const a = buildProfile({ ...BASE, birth_date: "2003-06-15" });
     const b = buildProfile({ ...BASE, birth_date: "2003-12-30" });
     expect(b.synthesis.narrative).not.toBe(a.synthesis.narrative);
+  });
+
+  // The test above varies element AND life path at once, so it would still
+  // pass on flavor_element alone — which is exactly what it did while
+  // templates.flavor_life_path was empty. These two dates share an element
+  // (both Song Tử / Air) and differ only in life path, so the assertion
+  // can only be satisfied by the flavor_life_path slot.
+  it("lets the life path move the narrative independently of the element", () => {
+    const a = buildProfile({ ...BASE, birth_date: "2003-06-15" });
+    const b = buildProfile({ ...BASE, birth_date: "2003-06-11" });
+
+    expect(b.zodiac.element).toBe(a.zodiac.element); // precondition
+    expect(b.numerology.life_path).not.toBe(a.numerology.life_path); // precondition
+
+    expect(b.synthesis.narrative).not.toBe(a.synthesis.narrative);
+    expect(a.synthesis.narrative).toContain(
+      templates.flavor_life_path[String(a.numerology.life_path)]!
+    );
+    expect(b.synthesis.narrative).toContain(
+      templates.flavor_life_path[String(b.numerology.life_path)]!
+    );
   });
 
   // The other half of the spec §5 load-bearing test. calculateNumerology
@@ -163,26 +215,65 @@ describe("buildProfile", () => {
     expect(fresh.zodiac.traits).not.toContain("MUTATED");
   });
 
-  // The `if (!entry)` guard in profile.ts can never fire on its own — all 16
-  // MBTI keys exist in mbti-types.json as truthy objects. Today only INFP
-  // is populated; the other 15 (including ESTJ, exercised here) have empty
-  // label/strengths/career_hints/etc. Without a "populated" check, scoring
-  // one of those types would silently produce a complete-looking profile
-  // with empty arrays and no error.
-  //
-  // TASK 11 MUST REVISIT THIS TEST: once mbti-types.json is fully populated,
-  // ESTJ_RESPONSES will no longer hit an empty entry and this assertion will
-  // start failing. At that point, either point ESTJ_RESPONSES-equivalent
-  // input at whichever type (if any) is still unpopulated, or — once all 16
-  // are populated — replace this test with one asserting buildProfile
-  // returns a populated profile for every type instead of throwing.
-  it("throws for a scored type whose data entry is unpopulated (Task 11 must revisit — see comment above)", () => {
-    expect(() =>
-      buildProfile({
+  // Task 11 filled all 16 entries, so ESTJ (the type ESTJ_RESPONSES scores
+  // to) now builds a real profile rather than tripping the populated-data
+  // guard. Kept as the positive half of that former assertion.
+  it("builds a fully populated profile for ESTJ, not an empty shell", () => {
+    const p = buildProfile({
+      ...BASE,
+      birth_date: "2003-06-15",
+      responses: ESTJ_RESPONSES,
+    });
+    expect(p.mbti.type).toBe("ESTJ");
+    expect(p.synthesis.career_hints.length).toBeGreaterThan(0);
+    expect(p.synthesis.strengths.length).toBeGreaterThan(0);
+    expect(p.mbti.traits.length).toBeGreaterThan(0);
+    expect(p.synthesis.narrative).not.toMatch(/\{[a-z_]+\}/);
+  });
+
+  // Every one of the 16 types must now build. Response vectors are derived
+  // from the bank's own poles, so this keeps working if Task 9's bank is
+  // ever rebalanced or regrown.
+  it("builds a populated profile for all 16 types", () => {
+    for (const type of ALL_TYPES) {
+      const p = buildProfile({
         ...BASE,
         birth_date: "2003-06-15",
-        responses: ESTJ_RESPONSES,
-      })
-    ).toThrow(/ESTJ/);
+        responses: responsesForType(type),
+      });
+      expect(p.mbti.type, `scored type for ${type}`).toBe(type);
+      expect(p.synthesis.narrative, `narrative ${type}`).not.toMatch(/\{[a-z_]+\}/);
+      expect(p.synthesis.narrative.length, `narrative ${type}`).toBeGreaterThan(40);
+      expect(p.synthesis.career_hints.length, `career_hints ${type}`).toBe(6);
+      expect(p.synthesis.strengths.length, `strengths ${type}`).toBe(5);
+      expect(p.mbti.traits.length, `traits ${type}`).toBe(4);
+    }
+  });
+
+  // The populated-data guard in profile.ts is still load-bearing — it is
+  // what stops a half-written entry from shipping as a complete-looking
+  // profile with empty arrays. With all 16 entries filled, no real input
+  // reaches it, so prove it against a deliberately emptied entry. The JSON
+  // import is the same cached module object profile.ts reads, so blanking
+  // a field here is exactly the state a future half-written entry would be
+  // in. Restored in `finally` so no other test sees the mutation.
+  it("throws rather than emitting an empty profile if an entry is unpopulated", () => {
+    const entry = typeData.ESTJ;
+    const savedLabel = entry.label;
+    const savedHints = [...entry.career_hints];
+    entry.label = "";
+    entry.career_hints = [];
+    try {
+      expect(() =>
+        buildProfile({
+          ...BASE,
+          birth_date: "2003-06-15",
+          responses: ESTJ_RESPONSES,
+        })
+      ).toThrow(/ESTJ/);
+    } finally {
+      entry.label = savedLabel;
+      entry.career_hints = savedHints;
+    }
   });
 });

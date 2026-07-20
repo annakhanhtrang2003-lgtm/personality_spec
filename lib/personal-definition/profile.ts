@@ -54,11 +54,12 @@ export function buildProfile(input: BuildProfileInput): PersonalProfile {
     throw new Error(`buildProfile: no data for MBTI type "${mbti.type}"`);
   }
   // All 16 keys exist in mbti-types.json as objects, so `entry` is always
-  // truthy — the check above can never fire on its own. Task 11 has only
-  // populated INFP so far; the other 15 entries are present but empty.
-  // Without this second check, an unpopulated type would silently produce
-  // a "complete-looking" profile with empty strengths/career_hints instead
-  // of failing loudly.
+  // truthy — the check above can never fire on its own. As of Task 11 all
+  // 16 entries are populated, so no real input reaches the check below
+  // either; it stays as the guard against a future half-written entry,
+  // which would otherwise ship a "complete-looking" profile with empty
+  // strengths/career_hints instead of failing loudly. profile.test.ts
+  // proves it against a deliberately emptied entry.
   if (!entry.label || entry.career_hints.length === 0) {
     throw new Error(
       `buildProfile: MBTI type "${mbti.type}" has no populated data yet`

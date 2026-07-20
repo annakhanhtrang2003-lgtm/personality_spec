@@ -1,7 +1,7 @@
 {
   "INFP": {
-    "label": "Người Hoà Giải",
-    "traits": ["giàu giá trị nội tâm", "đồng cảm", "sáng tạo", "kín đáo"],
+    "label": "Người sống theo la bàn bên trong",
+    "traits": ["giàu nội tâm", "đồng cảm", "sáng tạo", "kín đáo"],
     "strengths": [
       "Nhìn ra điều người khác đang thực sự cần, kể cả khi họ không nói ra",
       "Giữ vững điều mình tin là đúng dù không ai ủng hộ",
@@ -17,19 +17,274 @@
     "personality_keywords": ["nội tâm", "lý tưởng", "đồng cảm", "sáng tạo", "chân thành", "linh hoạt"],
     "career_hints": ["viết lách và nội dung", "thiết kế", "tâm lý và tham vấn", "giáo dục", "phát triển cộng đồng", "nghiên cứu xã hội"]
   },
-  "INFJ": { "label": "", "traits": [], "strengths": [], "growth_areas": [], "personality_keywords": [], "career_hints": [] },
-  "INTP": { "label": "", "traits": [], "strengths": [], "growth_areas": [], "personality_keywords": [], "career_hints": [] },
-  "INTJ": { "label": "", "traits": [], "strengths": [], "growth_areas": [], "personality_keywords": [], "career_hints": [] },
-  "ISFP": { "label": "", "traits": [], "strengths": [], "growth_areas": [], "personality_keywords": [], "career_hints": [] },
-  "ISFJ": { "label": "", "traits": [], "strengths": [], "growth_areas": [], "personality_keywords": [], "career_hints": [] },
-  "ISTP": { "label": "", "traits": [], "strengths": [], "growth_areas": [], "personality_keywords": [], "career_hints": [] },
-  "ISTJ": { "label": "", "traits": [], "strengths": [], "growth_areas": [], "personality_keywords": [], "career_hints": [] },
-  "ENFP": { "label": "", "traits": [], "strengths": [], "growth_areas": [], "personality_keywords": [], "career_hints": [] },
-  "ENFJ": { "label": "", "traits": [], "strengths": [], "growth_areas": [], "personality_keywords": [], "career_hints": [] },
-  "ENTP": { "label": "", "traits": [], "strengths": [], "growth_areas": [], "personality_keywords": [], "career_hints": [] },
-  "ENTJ": { "label": "", "traits": [], "strengths": [], "growth_areas": [], "personality_keywords": [], "career_hints": [] },
-  "ESFP": { "label": "", "traits": [], "strengths": [], "growth_areas": [], "personality_keywords": [], "career_hints": [] },
-  "ESFJ": { "label": "", "traits": [], "strengths": [], "growth_areas": [], "personality_keywords": [], "career_hints": [] },
-  "ESTP": { "label": "", "traits": [], "strengths": [], "growth_areas": [], "personality_keywords": [], "career_hints": [] },
-  "ESTJ": { "label": "", "traits": [], "strengths": [], "growth_areas": [], "personality_keywords": [], "career_hints": [] }
+  "INFJ": {
+    "label": "Người lặng lẽ dẫn đường",
+    "traits": ["kín tiếng", "nhìn xa", "hiểu người", "quyết tâm ngầm"],
+    "strengths": [
+      "Nhận ra một nhóm hay một mối quan hệ đang đi lệch từ rất sớm",
+      "Giữ một mục tiêu dài trong đầu suốt nhiều tháng mà không cần ai nhắc",
+      "Nói được điều khó nghe theo cách người ta chịu nghe",
+      "Biến một cảm nhận mơ hồ thành lời khuyên cụ thể cho người khác",
+      "Làm việc một mình rất sâu, không cần ai đứng cạnh thúc"
+    ],
+    "growth_areas": [
+      "Hay ôm chuyện của người khác vào người rồi tự thấy nặng",
+      "Đặt tiêu chuẩn cho bản thân cao tới mức ít khi thấy mình làm đủ",
+      "Rút lui lặng lẽ khi thất vọng thay vì nói ra trước"
+    ],
+    "personality_keywords": ["sâu sắc", "thấu cảm", "kiên định", "hướng nội", "có định hướng", "tinh tế"],
+    "career_hints": ["tham vấn tâm lý", "giáo dục", "nghiên cứu hành vi người dùng", "công tác xã hội", "biên tập nội dung", "phát triển chương trình đào tạo"]
+  },
+  "INTP": {
+    "label": "Người mổ xẻ ý tưởng",
+    "traits": ["tò mò", "thiên về logic", "độc lập", "hay hoài nghi"],
+    "strengths": [
+      "Thấy ngay chỗ lập luận của người khác bị hổng",
+      "Tự học một thứ hoàn toàn mới chỉ vì thấy nó thú vị",
+      "Nghĩ ra cách giải khác với cách ai cũng làm",
+      "Giữ đầu lạnh khi tranh luận, ít bị cuốn theo cảm xúc",
+      "Chịu ngồi lâu với một câu hỏi khó mà chưa cần có đáp án"
+    ],
+    "growth_areas": [
+      "Dễ dừng ở giai đoạn nghĩ mà chưa bắt tay làm ra thứ cụ thể",
+      "Hay giải thích dài hơn mức người nghe đang cần",
+      "Ngại những việc lặp đi lặp lại dù đó là phần phải xong"
+    ],
+    "personality_keywords": ["phân tích", "tò mò", "độc lập", "trừu tượng", "khách quan", "linh hoạt"],
+    "career_hints": ["lập trình", "nghiên cứu khoa học", "phân tích dữ liệu", "toán và thống kê", "thiết kế hệ thống", "viết tài liệu kỹ thuật"]
+  },
+  "INTJ": {
+    "label": "Người dựng kế hoạch dài hơi",
+    "traits": ["thích tính trước", "độc lập", "thẳng thắn", "cầu toàn"],
+    "strengths": [
+      "Nhìn một mục tiêu xa rồi chia ngược thành các bước phải làm",
+      "Tự đặt tiêu chuẩn cho mình và theo nó không cần ai giám sát",
+      "Bỏ được cách làm cũ ngay khi thấy có cách tốt hơn",
+      "Nói thẳng vấn đề khi cả nhóm còn đang nói vòng",
+      "Giữ được hướng đi dù chưa thấy kết quả trong ngắn hạn"
+    ],
+    "growth_areas": [
+      "Hay tự làm hết vì thấy giải thích lâu hơn tự làm",
+      "Nói thẳng đến mức người nghe hiểu nhầm là bạn đang chê",
+      "Khó bắt đầu khi kế hoạch chưa đủ chắc trong đầu"
+    ],
+    "personality_keywords": ["chiến lược", "độc lập", "quyết đoán", "dài hạn", "chặt chẽ", "kỷ luật"],
+    "career_hints": ["phân tích dữ liệu", "hoạch định chiến lược", "kỹ thuật phần mềm", "tài chính", "nghiên cứu chính sách", "quản lý dự án"]
+  },
+  "ISFP": {
+    "label": "Người sống bằng cảm nhận",
+    "traits": ["nhẹ nhàng", "tinh tế với cái đẹp", "sống ở hiện tại", "thích tự do"],
+    "strengths": [
+      "Cảm được ngay thứ gì hợp mắt, hợp tai, hợp không khí",
+      "Thể hiện điều mình nghĩ bằng việc làm thay vì bằng lời",
+      "Ở cạnh người đang buồn mà không cần phải nói gì nhiều",
+      "Thích nghi nhanh khi kế hoạch đổi vào phút chót",
+      "Giữ được nét riêng mà không cần gây chú ý"
+    ],
+    "growth_areas": [
+      "Hay im lặng chịu đựng khi bị đối xử không công bằng",
+      "Ngại những việc phải hình dung xa nhiều tháng",
+      "Dễ âm thầm so mình với người khác"
+    ],
+    "personality_keywords": ["tinh tế", "nhẹ nhàng", "thẩm mỹ", "tự do", "chân thật", "hiện tại"],
+    "career_hints": ["thiết kế", "nghệ thuật và thủ công", "nhiếp ảnh", "ẩm thực", "chăm sóc sức khoẻ", "thời trang"]
+  },
+  "ISFJ": {
+    "label": "Người âm thầm lo chu toàn",
+    "traits": ["chu đáo", "kiên nhẫn", "đáng tin", "khiêm tốn"],
+    "strengths": [
+      "Nhớ những chi tiết nhỏ về người khác mà ai cũng quên",
+      "Làm xong phần việc không ai thấy nhưng thiếu là hỏng việc",
+      "Giữ lời đã hứa kể cả khi bất tiện cho mình",
+      "Tạo cảm giác ổn định cho người xung quanh trong lúc rối",
+      "Bền bỉ với một việc lặp lại lâu dài mà vẫn giữ chất lượng"
+    ],
+    "growth_areas": [
+      "Khó nói không nên hay nhận thêm việc quá sức",
+      "Chờ người khác nhận ra công mình thay vì tự nói ra",
+      "Ngại đổi cách làm dù cách cũ đã đuối"
+    ],
+    "personality_keywords": ["chu đáo", "tận tâm", "ổn định", "trách nhiệm", "ấm áp", "tỉ mỉ"],
+    "career_hints": ["điều dưỡng và y tế", "giáo dục tiểu học", "hành chính nhân sự", "kế toán", "thư viện và lưu trữ", "chăm sóc khách hàng"]
+  },
+  "ISTP": {
+    "label": "Người mày mò bằng tay",
+    "traits": ["thực tế", "bình tĩnh", "thích tự làm", "ít lời"],
+    "strengths": [
+      "Tháo ra, thử, rồi hiểu một thứ nhanh hơn là đọc hướng dẫn",
+      "Giữ được bình tĩnh khi có sự cố bất ngờ",
+      "Tìm ra cách sửa gọn nhất thay vì cách bài bản nhất",
+      "Không ngợp trước việc mình chưa từng làm bao giờ",
+      "Nhìn ra chỗ máy móc hay quy trình đang trục trặc"
+    ],
+    "growth_areas": [
+      "Hay bỏ dở khi phần thú vị đã xong và chỉ còn phần hoàn thiện",
+      "Ít chia sẻ nên người khác khó biết bạn đang nghĩ gì",
+      "Khó ngồi yên trong những buổi bàn bạc dài không đi tới đâu"
+    ],
+    "personality_keywords": ["thực tế", "khéo tay", "bình tĩnh", "cơ động", "độc lập", "trực tiếp"],
+    "career_hints": ["kỹ thuật cơ khí", "điện tử", "công nghệ thông tin", "vận hành thiết bị", "thể thao", "cứu hộ và an toàn lao động"]
+  },
+  "ISTJ": {
+    "label": "Người giữ mọi thứ đúng chỗ",
+    "traits": ["ngăn nắp", "đáng tin", "sát thực tế", "nghiêm túc"],
+    "strengths": [
+      "Làm đúng cam kết đến từng chi tiết và đúng hạn",
+      "Phát hiện chỗ sai trong số liệu hay giấy tờ mà người khác lướt qua",
+      "Dựng ra cách làm rõ ràng để lần sau không phải nghĩ lại từ đầu",
+      "Không bị lung lay bởi ý kiến số đông khi đã tự kiểm chứng",
+      "Duy trì phong độ đều đặn thay vì làm theo hứng"
+    ],
+    "growth_areas": [
+      "Hay giữ cách cũ dù bối cảnh đã đổi",
+      "Đánh giá người khác hơi nhanh khi họ làm việc thiếu chỉn chu",
+      "Ít nói ra cảm xúc nên dễ bị hiểu là khô khan"
+    ],
+    "personality_keywords": ["kỷ luật", "chính xác", "đáng tin", "có tổ chức", "kiên định", "thực tế"],
+    "career_hints": ["kế toán và kiểm toán", "luật", "quản lý chất lượng", "hậu cần và chuỗi cung ứng", "quản trị cơ sở dữ liệu", "hành chính công"]
+  },
+  "ENFP": {
+    "label": "Người thắp ý tưởng",
+    "traits": ["hào hứng", "giàu tưởng tượng", "cởi mở", "ứng biến nhanh"],
+    "strengths": [
+      "Làm người khác thấy một ý tưởng đáng để thử",
+      "Nối hai chuyện chẳng liên quan thành một hướng mới",
+      "Bắt chuyện được với gần như bất kỳ ai",
+      "Nhìn ra tiềm năng ở người mà chính họ chưa thấy",
+      "Xoay hướng nhanh khi mọi thứ không như dự tính"
+    ],
+    "growth_areas": [
+      "Mở nhiều việc cùng lúc rồi khó dồn sức cho việc nào tới cùng",
+      "Hết hứng khi phần mới mẻ đã qua và chỉ còn phần chi tiết",
+      "Nhận lời quá nhiều vì ngại làm người khác hụt hẫng"
+    ],
+    "personality_keywords": ["nhiệt tình", "sáng tạo", "kết nối", "tò mò", "truyền cảm hứng", "linh hoạt"],
+    "career_hints": ["truyền thông và marketing", "sáng tạo nội dung", "khởi nghiệp", "tổ chức sự kiện", "đào tạo và hướng dẫn", "phát triển cộng đồng"]
+  },
+  "ENFJ": {
+    "label": "Người kéo cả nhóm cùng lớn",
+    "traits": ["ấm áp", "có sức tập hợp", "trách nhiệm", "khéo nói"],
+    "strengths": [
+      "Biết ai trong nhóm hợp với phần việc nào",
+      "Nói trước đám đông theo cách người nghe thấy mình được nhắc tới",
+      "Giữ nhóm không rã khi có mâu thuẫn",
+      "Kiên trì theo sát một người cho tới khi họ tiến bộ thật",
+      "Đặt ra một mục tiêu chung mà nhiều người muốn góp phần"
+    ],
+    "growth_areas": [
+      "Lo cho người khác trước rồi bỏ quên phần của mình",
+      "Buồn lâu khi có người trong nhóm không hài lòng với bạn",
+      "Hay đứng ra nhận cả những chuyện ngoài tầm mình"
+    ],
+    "personality_keywords": ["ấm áp", "dẫn dắt", "thấu hiểu", "truyền cảm hứng", "trách nhiệm", "hợp tác"],
+    "career_hints": ["giáo dục và giảng dạy", "quản trị nhân sự", "truyền thông", "tổ chức phi lợi nhuận", "huấn luyện và phát triển con người", "quan hệ đối ngoại"]
+  },
+  "ENTP": {
+    "label": "Người thích bẻ ngược vấn đề",
+    "traits": ["nhanh nhạy", "thích tranh luận", "nhiều ý tưởng", "không ngại phá lệ"],
+    "strengths": [
+      "Tìm ra lỗ hổng trong một kế hoạch nghe rất xuôi tai",
+      "Nghĩ ra ba phương án khác trong lúc người khác còn bàn phương án một",
+      "Thấy thú vị thay vì khó chịu khi bị phản biện",
+      "Làm người khác hiểu một ý lạ bằng ví dụ rất đời",
+      "Dám thử cách chưa ai trong nhóm từng thử"
+    ],
+    "growth_areas": [
+      "Cãi cho vui tới mức người đối diện tưởng bạn đang gây sự",
+      "Nói chen vào vì đã nghĩ ra câu trả lời trước khi người kia nói xong",
+      "Hay đổi hướng giữa chừng vì thấy hướng mới hay hơn"
+    ],
+    "personality_keywords": ["nhanh nhạy", "sáng tạo", "phản biện", "táo bạo", "hoạt ngôn", "ứng biến"],
+    "career_hints": ["khởi nghiệp", "tư vấn chiến lược", "phát triển sản phẩm", "quảng cáo", "báo chí", "phát triển thị trường"]
+  },
+  "ENTJ": {
+    "label": "Người chốt hướng rồi kéo mọi người theo",
+    "traits": ["quyết đoán", "thẳng thắn", "sắp việc gọn", "nhiều tham vọng"],
+    "strengths": [
+      "Ra quyết định khi thông tin chưa đủ mà vẫn đi tiếp được",
+      "Nhìn một mớ việc lộn xộn và sắp lại thành thứ tự ưu tiên",
+      "Thuyết phục được người khác đi theo hướng mình đã chọn",
+      "Chịu được áp lực khi kết quả gắn với tên mình",
+      "Đẩy cả nhóm đi nhanh hơn mức nhóm tự đi"
+    ],
+    "growth_areas": [
+      "Đi nhanh tới mức người chậm hơn thấy mình bị bỏ lại",
+      "Bỏ qua cảm xúc trong phòng khi đang tập trung vào kết quả",
+      "Đo người khác bằng đúng cái thước bạn đang dùng cho chính mình"
+    ],
+    "personality_keywords": ["quyết đoán", "dẫn dắt", "hiệu quả", "hướng mục tiêu", "thẳng thắn", "chủ động"],
+    "career_hints": ["quản trị kinh doanh", "tài chính đầu tư", "tư vấn quản lý", "vận hành doanh nghiệp", "luật", "phát triển kinh doanh"]
+  },
+  "ESFP": {
+    "label": "Người làm không khí sống dậy",
+    "traits": ["hoạt bát", "thân thiện", "thích trải nghiệm", "tuỳ cơ ứng biến"],
+    "strengths": [
+      "Làm người lạ thấy dễ chịu chỉ sau vài câu",
+      "Xoay xở tốt khi mọi thứ diễn ra trực tiếp và không kịp chuẩn bị",
+      "Kéo năng lượng của cả phòng lên khi mọi người đang xuống",
+      "Học nhanh nhất bằng cách nhảy vào làm thử",
+      "Để ý ngay khi có ai đó đang lạc lõng trong nhóm"
+    ],
+    "growth_areas": [
+      "Khó ngồi yên với việc phải làm một mình trong thời gian dài",
+      "Quyết theo cảm hứng lúc đó rồi tính sau",
+      "Né những cuộc nói chuyện nặng nề thay vì gỡ sớm"
+    ],
+    "personality_keywords": ["hoạt bát", "thân thiện", "tự nhiên", "ưa trải nghiệm", "ứng biến", "lạc quan"],
+    "career_hints": ["biểu diễn và nghệ thuật", "du lịch và khách sạn", "bán hàng", "tổ chức sự kiện", "truyền hình và phát thanh", "thể dục thể thao"]
+  },
+  "ESFJ": {
+    "label": "Người lo cho cả nhóm từ việc nhỏ",
+    "traits": ["nhiệt tình", "chu đáo", "thích làm cùng người khác", "coi trọng nề nếp"],
+    "strengths": [
+      "Sắp xếp cho một nhóm đông ăn ở, đi lại, phân việc đâu ra đấy",
+      "Nhớ sinh nhật, nhớ chuyện cũ, làm người ta thấy mình được để ý",
+      "Kéo người mới hoà vào nhóm rất nhanh",
+      "Làm cầu nối khi hai bên đang ngại nói chuyện với nhau",
+      "Giữ được nếp sinh hoạt chung đều đặn cho cả nhóm"
+    ],
+    "growth_areas": [
+      "Để ý hơi nhiều tới việc người khác đang nghĩ gì về mình",
+      "Muốn cả nhóm phải ổn hết thì bạn mới thấy yên tâm",
+      "Khó chịu với người làm khác nề nếp chung dù họ không sai"
+    ],
+    "personality_keywords": ["chu đáo", "hoà đồng", "trách nhiệm", "gắn kết", "ấm áp", "ngăn nắp"],
+    "career_hints": ["quản trị nhân sự", "chăm sóc khách hàng", "giáo dục", "y tế cộng đồng", "hành chính văn phòng", "dịch vụ khách hàng doanh nghiệp"]
+  },
+  "ESTP": {
+    "label": "Người xử lý ngay tại chỗ",
+    "traits": ["nhanh chân", "gan", "sát thực tế", "thích hành động"],
+    "strengths": [
+      "Ra tay ngay khi có sự cố thay vì đợi bàn cho xong",
+      "Đọc được tình huống và người đối diện rất nhanh",
+      "Không sợ chịu rủi ro để thử một cơ hội",
+      "Thương lượng thoải mái, kể cả với người lớn tuổi hơn",
+      "Học được từ va vấp mà không mất nhiều thời gian tự trách"
+    ],
+    "growth_areas": [
+      "Quyết nhanh nên đôi khi bỏ qua hậu quả về sau",
+      "Chán những việc phải chuẩn bị lâu mới thấy kết quả",
+      "Nói thẳng tới mức người khác chưa kịp chuẩn bị tinh thần"
+    ],
+    "personality_keywords": ["nhanh nhẹn", "quyết đoán", "thực tế", "gan dạ", "hoạt bát", "xoay xở"],
+    "career_hints": ["kinh doanh và bán hàng", "thể thao", "khởi nghiệp", "bất động sản", "an ninh và cứu hộ", "thương mại và phân phối"]
+  },
+  "ESTJ": {
+    "label": "Người đưa mọi thứ vào guồng",
+    "traits": ["rõ ràng", "kỷ luật", "thực tế", "dứt khoát"],
+    "strengths": [
+      "Biến một nhóm đang loay hoay thành một nhóm có phân công rõ",
+      "Nhắc và theo tới cùng cho tới khi việc thật sự xong",
+      "Nói rõ tiêu chuẩn ngay từ đầu để khỏi phải sửa về sau",
+      "Giữ được tiến độ ngay cả khi công việc khô khan",
+      "Dựa vào cái đã chạy được thay vì đoán mò"
+    ],
+    "growth_areas": [
+      "Hay áp cách làm của mình lên người có cách khác",
+      "Sốt ruột với những buổi bàn luận chưa ra kết luận",
+      "Ít khen thành tiếng dù trong lòng có ghi nhận"
+    ],
+    "personality_keywords": ["kỷ luật", "rõ ràng", "hiệu quả", "trách nhiệm", "thực tế", "có tổ chức"],
+    "career_hints": ["quản lý vận hành", "kế toán", "hậu cần và chuỗi cung ứng", "quản lý sản xuất", "hành chính công", "quản lý bán lẻ"]
+  }
 }
