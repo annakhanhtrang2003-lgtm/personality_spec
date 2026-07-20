@@ -136,11 +136,38 @@ describe("numerology interpretations content", () => {
   const KINDS = ["life_path", "expression", "soul_urge", "personality"] as const;
   const VALUES = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "11", "22", "33"] as const;
 
+  const ALL_PASSAGES = KINDS.flatMap((k) =>
+    VALUES.map((v) => [`${k}.${v}`, interpretations[k][v]] as const)
+  );
+
   it("covers every kind and value", () => {
     for (const k of KINDS) {
       for (const v of VALUES) {
-        expect(interpretations[k][v]?.length, `${k}.${v}`).toBeGreaterThan(40);
+        // Passages run 180-250 chars; a floor of 40 gated nothing.
+        expect(interpretations[k][v]?.length, `${k}.${v}`).toBeGreaterThan(120);
       }
+    }
+  });
+
+  it("keeps every passage to two or three sentences", () => {
+    for (const [id, text] of ALL_PASSAGES) {
+      const sentences = text.split(/[.!?](?:\s|$)/).filter((s) => s.trim().length > 0);
+      expect(sentences.length, `${id}: ${text}`).toBeGreaterThanOrEqual(2);
+      expect(sentences.length, `${id}: ${text}`).toBeLessThanOrEqual(3);
+    }
+  });
+
+  it("names no career, major, or industry — spec §5 layer separation", () => {
+    const banned = /(nghề|ngành|sự nghiệp|công việc phù hợp)/i;
+    for (const [id, text] of ALL_PASSAGES) {
+      expect(banned.test(text), `${id}: ${text}`).toBe(false);
+    }
+  });
+
+  it("uses no archetype titles", () => {
+    const banned = /(Người Lãnh Đạo|Nhà Kiến Tạo|Bậc Thầy)/i;
+    for (const [id, text] of ALL_PASSAGES) {
+      expect(banned.test(text), `${id}: ${text}`).toBe(false);
     }
   });
 
