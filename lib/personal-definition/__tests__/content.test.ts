@@ -151,6 +151,42 @@ describe("mbti-types.json content", () => {
     expect(new Set(careers).size, "career_hints").toBe(16);
   });
 
+  // `career_hints.length === 6` cannot see an entry that spends two of its
+  // six slots on one field ("chăm sóc khách hàng" + "dịch vụ khách hàng
+  // doanh nghiệp"), which ships 5 distinct fields where every other type
+  // ships 6 — weaker Step 2 signal, invisible to a count.
+  it("gives no type a duplicated item within any list", () => {
+    for (const t of ALL_TYPES) {
+      const e = types[t];
+      const lists = {
+        traits: e.traits,
+        strengths: e.strengths,
+        growth_areas: e.growth_areas,
+        personality_keywords: e.personality_keywords,
+        career_hints: e.career_hints,
+      };
+      for (const [field, list] of Object.entries(lists)) {
+        expect(new Set(list).size, `${t}.${field}`).toBe(list.length);
+      }
+    }
+  });
+
+  // Adjacent types blur field by field, not entry by entry: ISFJ and ESFJ
+  // once shared 3 of 6 keywords, a trait and a career on top of a shared
+  // strength. Whole-list uniqueness cannot see that. Half the list is the
+  // ceiling — beyond it the two entries stop reading as different types.
+  it("keeps keyword overlap between any two types at or below half", () => {
+    for (const a of ALL_TYPES) {
+      for (const b of ALL_TYPES) {
+        if (a >= b) continue;
+        const shared = types[a].personality_keywords.filter((k) =>
+          types[b].personality_keywords.includes(k)
+        );
+        expect(shared.length, `${a}/${b} share: ${shared.join(", ")}`).toBeLessThanOrEqual(3);
+      }
+    }
+  });
+
   // Spec §5: these four fields are the Step 2 handoff and derive from the
   // MBTI type alone. A zodiac or numerology word here would make career
   // signal move with a birthday, which profile.test.ts guards at runtime —

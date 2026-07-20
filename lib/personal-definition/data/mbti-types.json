@@ -15,7 +15,7 @@
       "Ngại nói ra nhu cầu của mình trong nhóm"
     ],
     "personality_keywords": ["nội tâm", "lý tưởng", "đồng cảm", "sáng tạo", "chân thành", "linh hoạt"],
-    "career_hints": ["viết lách và nội dung", "thiết kế", "tâm lý và tham vấn", "giáo dục", "phát triển cộng đồng", "nghiên cứu xã hội"]
+    "career_hints": ["viết lách", "thiết kế", "tâm lý học", "giáo dục", "xuất bản", "nghiên cứu xã hội"]
   },
   "INFJ": {
     "label": "Người lặng lẽ dẫn đường",
@@ -32,8 +32,8 @@
       "Đặt tiêu chuẩn cho bản thân cao tới mức ít khi thấy mình làm đủ",
       "Rút lui lặng lẽ khi thất vọng thay vì nói ra trước"
     ],
-    "personality_keywords": ["sâu sắc", "thấu cảm", "kiên định", "hướng nội", "có định hướng", "tinh tế"],
-    "career_hints": ["tham vấn tâm lý", "giáo dục", "nghiên cứu hành vi người dùng", "công tác xã hội", "biên tập nội dung", "phát triển chương trình đào tạo"]
+    "personality_keywords": ["sâu sắc", "thấu cảm", "kiên định", "hướng nội", "nhìn xa", "tinh tế"],
+    "career_hints": ["tham vấn tâm lý", "công tác xã hội", "nghiên cứu người dùng", "biên tập", "giáo dục đặc biệt", "nhân học"]
   },
   "INTP": {
     "label": "Người mổ xẻ ý tưởng",
@@ -51,7 +51,7 @@
       "Ngại những việc lặp đi lặp lại dù đó là phần phải xong"
     ],
     "personality_keywords": ["phân tích", "tò mò", "độc lập", "trừu tượng", "khách quan", "linh hoạt"],
-    "career_hints": ["lập trình", "nghiên cứu khoa học", "phân tích dữ liệu", "toán và thống kê", "thiết kế hệ thống", "viết tài liệu kỹ thuật"]
+    "career_hints": ["lập trình", "nghiên cứu khoa học", "phân tích dữ liệu", "toán và thống kê", "trí tuệ nhân tạo", "triết học"]
   },
   "INTJ": {
     "label": "Người dựng kế hoạch dài hơi",
@@ -87,13 +87,13 @@
       "Dễ âm thầm so mình với người khác"
     ],
     "personality_keywords": ["tinh tế", "nhẹ nhàng", "thẩm mỹ", "tự do", "chân thật", "hiện tại"],
-    "career_hints": ["thiết kế", "nghệ thuật và thủ công", "nhiếp ảnh", "ẩm thực", "chăm sóc sức khoẻ", "thời trang"]
+    "career_hints": ["mỹ thuật", "thủ công mỹ nghệ", "nhiếp ảnh", "ẩm thực", "chăm sóc sức khoẻ", "thời trang"]
   },
   "ISFJ": {
     "label": "Người âm thầm lo chu toàn",
     "traits": ["chu đáo", "kiên nhẫn", "đáng tin", "khiêm tốn"],
     "strengths": [
-      "Nhớ những chi tiết nhỏ về người khác mà ai cũng quên",
+      "Chuẩn bị sẵn thứ người khác sắp cần trước khi họ kịp hỏi",
       "Làm xong phần việc không ai thấy nhưng thiếu là hỏng việc",
       "Giữ lời đã hứa kể cả khi bất tiện cho mình",
       "Tạo cảm giác ổn định cho người xung quanh trong lúc rối",
@@ -104,8 +104,8 @@
       "Chờ người khác nhận ra công mình thay vì tự nói ra",
       "Ngại đổi cách làm dù cách cũ đã đuối"
     ],
-    "personality_keywords": ["chu đáo", "tận tâm", "ổn định", "trách nhiệm", "ấm áp", "tỉ mỉ"],
-    "career_hints": ["điều dưỡng và y tế", "giáo dục tiểu học", "hành chính nhân sự", "kế toán", "thư viện và lưu trữ", "chăm sóc khách hàng"]
+    "personality_keywords": ["chu đáo", "tận tâm", "ổn định", "kiên nhẫn", "ấm áp", "tỉ mỉ"],
+    "career_hints": ["điều dưỡng", "giáo dục tiểu học", "dược", "kế toán", "lưu trữ", "hành chính nhân sự"]
   },
   "ISTP": {
     "label": "Người mày mò bằng tay",
@@ -123,7 +123,7 @@
       "Khó ngồi yên trong những buổi bàn bạc dài không đi tới đâu"
     ],
     "personality_keywords": ["thực tế", "khéo tay", "bình tĩnh", "cơ động", "độc lập", "trực tiếp"],
-    "career_hints": ["kỹ thuật cơ khí", "điện tử", "công nghệ thông tin", "vận hành thiết bị", "thể thao", "cứu hộ và an toàn lao động"]
+    "career_hints": ["kỹ thuật cơ khí", "điện tử", "công nghệ thông tin", "vận hành thiết bị", "hàng không", "an toàn lao động"]
   },
   "ISTJ": {
     "label": "Người giữ mọi thứ đúng chỗ",
@@ -141,7 +141,7 @@
       "Ít nói ra cảm xúc nên dễ bị hiểu là khô khan"
     ],
     "personality_keywords": ["kỷ luật", "chính xác", "đáng tin", "có tổ chức", "kiên định", "thực tế"],
-    "career_hints": ["kế toán và kiểm toán", "luật", "quản lý chất lượng", "hậu cần và chuỗi cung ứng", "quản trị cơ sở dữ liệu", "hành chính công"]
+    "career_hints": ["kế toán và kiểm toán", "luật", "quản lý chất lượng", "thuế", "quản trị cơ sở dữ liệu", "bảo hiểm"]
   },
   "ENFP": {
     "label": "Người thắp ý tưởng",
@@ -149,17 +149,17 @@
     "strengths": [
       "Làm người khác thấy một ý tưởng đáng để thử",
       "Nối hai chuyện chẳng liên quan thành một hướng mới",
-      "Bắt chuyện được với gần như bất kỳ ai",
+      "Ghép được hai người lẽ ra nên quen nhau mà chưa quen",
       "Nhìn ra tiềm năng ở người mà chính họ chưa thấy",
       "Xoay hướng nhanh khi mọi thứ không như dự tính"
     ],
     "growth_areas": [
       "Mở nhiều việc cùng lúc rồi khó dồn sức cho việc nào tới cùng",
-      "Hết hứng khi phần mới mẻ đã qua và chỉ còn phần chi tiết",
+      "Hào hứng lây sang người khác tới mức họ gật đầu trước khi kịp nghĩ",
       "Nhận lời quá nhiều vì ngại làm người khác hụt hẫng"
     ],
     "personality_keywords": ["nhiệt tình", "sáng tạo", "kết nối", "tò mò", "truyền cảm hứng", "linh hoạt"],
-    "career_hints": ["truyền thông và marketing", "sáng tạo nội dung", "khởi nghiệp", "tổ chức sự kiện", "đào tạo và hướng dẫn", "phát triển cộng đồng"]
+    "career_hints": ["marketing", "sáng tạo nội dung", "khởi nghiệp", "tổ chức sự kiện", "đào tạo", "quan hệ công chúng"]
   },
   "ENFJ": {
     "label": "Người kéo cả nhóm cùng lớn",
@@ -177,7 +177,7 @@
       "Hay đứng ra nhận cả những chuyện ngoài tầm mình"
     ],
     "personality_keywords": ["ấm áp", "dẫn dắt", "thấu hiểu", "truyền cảm hứng", "trách nhiệm", "hợp tác"],
-    "career_hints": ["giáo dục và giảng dạy", "quản trị nhân sự", "truyền thông", "tổ chức phi lợi nhuận", "huấn luyện và phát triển con người", "quan hệ đối ngoại"]
+    "career_hints": ["giảng dạy", "quản trị nhân sự", "truyền thông", "hướng nghiệp", "quan hệ đối ngoại", "chính sách giáo dục"]
   },
   "ENTP": {
     "label": "Người thích bẻ ngược vấn đề",
@@ -195,7 +195,7 @@
       "Hay đổi hướng giữa chừng vì thấy hướng mới hay hơn"
     ],
     "personality_keywords": ["nhanh nhạy", "sáng tạo", "phản biện", "táo bạo", "hoạt ngôn", "ứng biến"],
-    "career_hints": ["khởi nghiệp", "tư vấn chiến lược", "phát triển sản phẩm", "quảng cáo", "báo chí", "phát triển thị trường"]
+    "career_hints": ["đổi mới sáng tạo", "tư vấn chiến lược", "phát triển sản phẩm", "quảng cáo", "báo chí", "phát triển thị trường"]
   },
   "ENTJ": {
     "label": "Người chốt hướng rồi kéo mọi người theo",
@@ -212,8 +212,8 @@
       "Bỏ qua cảm xúc trong phòng khi đang tập trung vào kết quả",
       "Đo người khác bằng đúng cái thước bạn đang dùng cho chính mình"
     ],
-    "personality_keywords": ["quyết đoán", "dẫn dắt", "hiệu quả", "hướng mục tiêu", "thẳng thắn", "chủ động"],
-    "career_hints": ["quản trị kinh doanh", "tài chính đầu tư", "tư vấn quản lý", "vận hành doanh nghiệp", "luật", "phát triển kinh doanh"]
+    "personality_keywords": ["quyết đoán", "dẫn dắt", "hiệu quả", "tham vọng", "thẳng thắn", "chủ động"],
+    "career_hints": ["quản trị kinh doanh", "tài chính đầu tư", "tư vấn quản lý", "thương mại quốc tế", "luật", "phát triển kinh doanh"]
   },
   "ESFP": {
     "label": "Người làm không khí sống dậy",
@@ -231,11 +231,11 @@
       "Né những cuộc nói chuyện nặng nề thay vì gỡ sớm"
     ],
     "personality_keywords": ["hoạt bát", "thân thiện", "tự nhiên", "ưa trải nghiệm", "ứng biến", "lạc quan"],
-    "career_hints": ["biểu diễn và nghệ thuật", "du lịch và khách sạn", "bán hàng", "tổ chức sự kiện", "truyền hình và phát thanh", "thể dục thể thao"]
+    "career_hints": ["nghệ thuật biểu diễn", "du lịch", "bán hàng", "tổ chức sự kiện", "phát thanh truyền hình", "thể dục thể thao"]
   },
   "ESFJ": {
-    "label": "Người lo cho cả nhóm từ việc nhỏ",
-    "traits": ["nhiệt tình", "chu đáo", "thích làm cùng người khác", "coi trọng nề nếp"],
+    "label": "Người đứng ra sắp xếp cho cả nhóm",
+    "traits": ["nhiệt tình", "hay đứng ra lo", "thích làm cùng người khác", "coi trọng nề nếp"],
     "strengths": [
       "Sắp xếp cho một nhóm đông ăn ở, đi lại, phân việc đâu ra đấy",
       "Nhớ sinh nhật, nhớ chuyện cũ, làm người ta thấy mình được để ý",
@@ -248,12 +248,12 @@
       "Muốn cả nhóm phải ổn hết thì bạn mới thấy yên tâm",
       "Khó chịu với người làm khác nề nếp chung dù họ không sai"
     ],
-    "personality_keywords": ["chu đáo", "hoà đồng", "trách nhiệm", "gắn kết", "ấm áp", "ngăn nắp"],
-    "career_hints": ["quản trị nhân sự", "chăm sóc khách hàng", "giáo dục", "y tế cộng đồng", "hành chính văn phòng", "dịch vụ khách hàng doanh nghiệp"]
+    "personality_keywords": ["hoà đồng", "nhiệt tình", "gắn kết", "trách nhiệm", "ngăn nắp", "quảng giao"],
+    "career_hints": ["chăm sóc khách hàng", "quản trị nhân sự", "giáo dục mầm non", "y tế cộng đồng", "hành chính văn phòng", "công tác đoàn thể"]
   },
   "ESTP": {
     "label": "Người xử lý ngay tại chỗ",
-    "traits": ["nhanh chân", "gan", "sát thực tế", "thích hành động"],
+    "traits": ["nhanh chân", "gan dạ", "sát thực tế", "thích hành động"],
     "strengths": [
       "Ra tay ngay khi có sự cố thay vì đợi bàn cho xong",
       "Đọc được tình huống và người đối diện rất nhanh",
@@ -266,8 +266,8 @@
       "Chán những việc phải chuẩn bị lâu mới thấy kết quả",
       "Nói thẳng tới mức người khác chưa kịp chuẩn bị tinh thần"
     ],
-    "personality_keywords": ["nhanh nhẹn", "quyết đoán", "thực tế", "gan dạ", "hoạt bát", "xoay xở"],
-    "career_hints": ["kinh doanh và bán hàng", "thể thao", "khởi nghiệp", "bất động sản", "an ninh và cứu hộ", "thương mại và phân phối"]
+    "personality_keywords": ["nhanh nhẹn", "quyết đoán", "thực tế", "bạo dạn", "hoạt bát", "xoay xở"],
+    "career_hints": ["kinh doanh", "bất động sản", "khởi nghiệp", "thể thao thành tích cao", "cứu hộ", "xuất nhập khẩu"]
   },
   "ESTJ": {
     "label": "Người đưa mọi thứ vào guồng",
@@ -284,7 +284,7 @@
       "Sốt ruột với những buổi bàn luận chưa ra kết luận",
       "Ít khen thành tiếng dù trong lòng có ghi nhận"
     ],
-    "personality_keywords": ["kỷ luật", "rõ ràng", "hiệu quả", "trách nhiệm", "thực tế", "có tổ chức"],
+    "personality_keywords": ["kỷ luật", "rõ ràng", "hiệu quả", "trách nhiệm", "thực tế", "dứt khoát"],
     "career_hints": ["quản lý vận hành", "kế toán", "hậu cần và chuỗi cung ứng", "quản lý sản xuất", "hành chính công", "quản lý bán lẻ"]
   }
 }
