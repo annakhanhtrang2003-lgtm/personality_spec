@@ -143,7 +143,7 @@ describe("numerology interpretations content", () => {
   it("covers every kind and value", () => {
     for (const k of KINDS) {
       for (const v of VALUES) {
-        // Passages run 180-250 chars; a floor of 40 gated nothing.
+        // Passages currently run ~185-295 chars; a floor of 40 gated nothing.
         expect(interpretations[k][v]?.length, `${k}.${v}`).toBeGreaterThan(120);
       }
     }
