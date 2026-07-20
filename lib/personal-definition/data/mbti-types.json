@@ -105,7 +105,7 @@
       "Ngại đổi cách làm dù cách cũ đã đuối"
     ],
     "personality_keywords": ["chu đáo", "tận tâm", "ổn định", "kiên nhẫn", "ấm áp", "tỉ mỉ"],
-    "career_hints": ["điều dưỡng", "giáo dục tiểu học", "dược", "kế toán", "lưu trữ", "hành chính nhân sự"]
+    "career_hints": ["điều dưỡng", "giáo dục tiểu học", "dược", "kế toán", "lưu trữ", "công chứng"]
   },
   "ISTP": {
     "label": "Người mày mò bằng tay",
@@ -195,7 +195,7 @@
       "Hay đổi hướng giữa chừng vì thấy hướng mới hay hơn"
     ],
     "personality_keywords": ["nhanh nhạy", "sáng tạo", "phản biện", "táo bạo", "hoạt ngôn", "ứng biến"],
-    "career_hints": ["đổi mới sáng tạo", "tư vấn chiến lược", "phát triển sản phẩm", "quảng cáo", "báo chí", "phát triển thị trường"]
+    "career_hints": ["khởi nghiệp", "tư vấn chiến lược", "phát triển sản phẩm", "quảng cáo", "báo chí", "phát triển thị trường"]
   },
   "ENTJ": {
     "label": "Người chốt hướng rồi kéo mọi người theo",
@@ -248,7 +248,7 @@
       "Muốn cả nhóm phải ổn hết thì bạn mới thấy yên tâm",
       "Khó chịu với người làm khác nề nếp chung dù họ không sai"
     ],
-    "personality_keywords": ["hoà đồng", "nhiệt tình", "gắn kết", "trách nhiệm", "ngăn nắp", "quảng giao"],
+    "personality_keywords": ["hoà đồng", "nhiệt tình", "gắn kết", "trách nhiệm", "ngăn nắp", "chủ động"],
     "career_hints": ["chăm sóc khách hàng", "quản trị nhân sự", "giáo dục mầm non", "y tế cộng đồng", "hành chính văn phòng", "công tác đoàn thể"]
   },
   "ESTP": {

@@ -151,10 +151,21 @@ describe("mbti-types.json content", () => {
     expect(new Set(careers).size, "career_hints").toBe(16);
   });
 
-  // `career_hints.length === 6` cannot see an entry that spends two of its
-  // six slots on one field ("chăm sóc khách hàng" + "dịch vụ khách hàng
-  // doanh nghiệp"), which ships 5 distinct fields where every other type
-  // ships 6 — weaker Step 2 signal, invisible to a count.
+  // Verbatim repeats only. This does NOT catch the defect that motivated it
+  // — an entry spending two of six slots on one field under two names
+  // ("chăm sóc khách hàng" + "dịch vụ khách hàng doanh nghiệp" in ESFJ,
+  // "kinh doanh và bán hàng" + "thương mại và phân phối" in ESTP), which
+  // ships 5 distinct fields where every other type ships 6. Those strings
+  // are not equal, so both would pass here.
+  //
+  // A head-noun rule was tried and rejected: it fires on ISTJ ("quản lý
+  // chất lượng" / "quản trị cơ sở dữ liệu" — different fields sharing one
+  // syllable), ENTP and ESTJ, all of which are correct as written. A test
+  // that fails on good data is worse than none.
+  //
+  // So the two-slots-one-field shape has NO mechanical guard. It is caught
+  // by reading the six hints of an entry together and asking whether they
+  // name six different places to work. Do that when editing career_hints.
   it("gives no type a duplicated item within any list", () => {
     for (const t of ALL_TYPES) {
       const e = types[t];
@@ -173,16 +184,20 @@ describe("mbti-types.json content", () => {
 
   // Adjacent types blur field by field, not entry by entry: ISFJ and ESFJ
   // once shared 3 of 6 keywords, a trait and a career on top of a shared
-  // strength. Whole-list uniqueness cannot see that. Half the list is the
-  // ceiling — beyond it the two entries stop reading as different types.
-  it("keeps keyword overlap between any two types at or below half", () => {
+  // strength. Whole-list uniqueness cannot see that.
+  //
+  // The ceiling is 2, not 3. Three shared keywords IS the defect: it is the
+  // ISFJ/ESFJ state described above, and the ISTJ/ESTJ state (kỷ luật, có
+  // tổ chức, thực tế) found by measuring after that fix. A ceiling of 3
+  // would pass both of the findings it exists to prevent. Actual max is 2.
+  it("keeps keyword overlap between any two types at two or fewer", () => {
     for (const a of ALL_TYPES) {
       for (const b of ALL_TYPES) {
         if (a >= b) continue;
         const shared = types[a].personality_keywords.filter((k) =>
           types[b].personality_keywords.includes(k)
         );
-        expect(shared.length, `${a}/${b} share: ${shared.join(", ")}`).toBeLessThanOrEqual(3);
+        expect(shared.length, `${a}/${b} share: ${shared.join(", ")}`).toBeLessThanOrEqual(2);
       }
     }
   });
