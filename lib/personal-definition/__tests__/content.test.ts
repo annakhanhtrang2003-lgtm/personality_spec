@@ -3,6 +3,8 @@ import bank from "../data/questions.json";
 import types from "../data/mbti-types.json";
 import templates from "../data/templates.json";
 import interpretations from "../data/numerology-interpretations.json";
+import universities from "../data/universities.json";
+import signs from "../data/zodiac-signs.json";
 
 const DIMENSIONS = ["EI", "SN", "TF", "JP"] as const;
 
@@ -348,5 +350,32 @@ describe("numerology interpretations content", () => {
       const passages = KINDS.map((k) => interpretations[k][v]);
       expect(new Set(passages).size, `value ${v} reused across kinds`).toBe(4);
     }
+  });
+});
+
+describe("universities.json", () => {
+  it("has unique ids and non-empty names", () => {
+    const ids = universities.map((u) => u.id);
+    expect(new Set(ids).size).toBe(ids.length);
+    for (const u of universities) {
+      expect(u.name.trim().length, u.id).toBeGreaterThan(3);
+    }
+  });
+
+  it("includes an 'other' escape hatch", () => {
+    expect(universities.some((u) => u.id === "other")).toBe(true);
+  });
+});
+
+describe("zodiac trait copy", () => {
+  it("gives every sign four traits", () => {
+    for (const s of signs) {
+      expect(s.traits.length, s.sun_sign).toBe(4);
+    }
+  });
+
+  it("does not reuse a trait list between signs", () => {
+    const joined = signs.map((s) => s.traits.join("|"));
+    expect(new Set(joined).size).toBe(12);
   });
 });
