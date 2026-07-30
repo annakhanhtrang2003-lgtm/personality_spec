@@ -1,0 +1,39 @@
+@keyframes pd-pulse {
+  0%   { transform: scale(1); }
+  40%  { transform: scale(1.12); }
+  100% { transform: scale(1); }
+}
+
+@keyframes pd-float {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-8px); }
+}
+
+@keyframes pd-pop {
+  0%   { transform: scale(0.85); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+.pulseOnChange { animation: pd-pulse 260ms ease-out; }
+.float         { animation: pd-float 3s ease-in-out infinite; }
+.popIn         { animation: pd-pop 320ms ease-out both, pd-float 3s ease-in-out 320ms infinite; }
+.bounceIn      { animation: pd-pop 320ms ease-out both; }
+
+/* The rasteriser records a single frame. Anything mid-animation exports
+   crooked, so capture pins every mascot back to its resting transform. */
+:global([data-capturing]) .pulseOnChange,
+:global([data-capturing]) .float,
+:global([data-capturing]) .popIn,
+:global([data-capturing]) .bounceIn {
+  animation: none !important;
+  transform: none !important;
+  opacity: 1 !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pulseOnChange, .float, .popIn, .bounceIn {
+    animation: none !important;
+    transform: none !important;
+    opacity: 1 !important;
+  }
+}
