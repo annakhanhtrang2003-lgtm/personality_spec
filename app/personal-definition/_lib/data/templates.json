@@ -1,0 +1,41 @@
+{
+  "intro": {
+    "INFP": "{name} ơi, kiểu của bạn gần nhất với {label} — {trait_line}.",
+    "INFJ": "{name} này, bộ câu trả lời của bạn nghiêng về {label}: {trait_line}.",
+    "INTP": "Nhìn cách {name} trả lời thì hiện lên kiểu {label} — {trait_line}.",
+    "INTJ": "{name} ơi, bạn có khá nhiều nét của {label}: {trait_line}.",
+    "ISFP": "Câu trả lời của {name} vẽ ra một {label} — {trait_line}.",
+    "ISFJ": "{name} này, phần lớn câu trả lời của bạn chỉ về phía {label}: {trait_line}.",
+    "ISTP": "{name} ơi, cách bạn xoay xở cho thấy một {label} — {trait_line}.",
+    "ISTJ": "Kết quả của {name} gom lại khá gọn vào kiểu {label}: {trait_line}.",
+    "ENFP": "{name} ơi, bạn mang dáng dấp của {label} — {trait_line}.",
+    "ENFJ": "{name} này, chân dung gần bạn nhất là {label}: {trait_line}.",
+    "ENTP": "Đọc hết các câu {name} chọn, hiện lên một {label} — {trait_line}.",
+    "ENTJ": "{name} ơi, hình dung sát nhất về bạn là {label}: {trait_line}.",
+    "ESFP": "{name} này, kiểu hợp với bạn nhất là {label} — {trait_line}.",
+    "ESFJ": "Cách {name} chọn cho thấy một {label}: {trait_line}.",
+    "ESTP": "{name} ơi, bạn hay hành xử theo kiểu {label} — {trait_line}.",
+    "ESTJ": "{name} này, nhìn tổng thể thì bạn hợp với mô tả {label}: {trait_line}."
+  },
+  "flavor_element": {
+    "Fire":  "Chút lửa trong bạn khiến bạn bắt đầu mọi thứ bằng nhiệt.",
+    "Earth": "Bạn có nền đất dưới chân — thích chắc chắn trước khi bước.",
+    "Air":   "Bạn sống nhiều trong ý tưởng và những cuộc trò chuyện.",
+    "Water": "Bạn cảm nhận mọi thứ hơi sâu hơn người xung quanh một chút."
+  },
+  "flavor_life_path": {
+    "1": "Ngày sinh của bạn thêm vào một chút ương: bảo bạn làm y hệt người khác thì kiểu gì bạn cũng tìm cách làm khác đi.",
+    "2": "Ngày sinh thêm vào một nhịp đi đôi: bạn làm ra thứ hay nhất khi có một người ngồi bàn cùng.",
+    "3": "Ngày sinh của bạn thêm chút màu: bạn hay làm mọi thứ vui hơn mức nó cần phải vui.",
+    "4": "Ngày sinh của bạn thêm một chút tiếc công: bạn ghét phải làm lại thứ đáng lẽ làm một lần là xong.",
+    "5": "Ngày sinh của bạn thêm chút tò mò với người lạ: tới chỗ mới bạn bắt chuyện dễ hơn số đông.",
+    "6": "Ngày sinh thêm cho bạn một cái gu về sự hài hoà: bạn thích chỗ mình ở và nhóm mình ở dễ chịu.",
+    "7": "Ngày sinh của bạn thêm một quãng lặng: cần vài phút một mình thì đầu bạn mới trở lại bình thường.",
+    "8": "Ngày sinh thêm chút gan chịu trách nhiệm: việc khó mà không ai nhận thì bạn hay là người giơ tay.",
+    "9": "Ngày sinh của bạn thêm chút hoài niệm: bạn hay ngoái lại xem mình đã đi qua những gì.",
+    "11": "Ngày sinh thêm vào một mức cường độ: cái gì bạn đã để tâm thì bạn để tâm hết mức.",
+    "22": "Ngày sinh của bạn thêm chút thực tế cho những ý lớn: bạn hay hỏi làm thật thì bắt đầu từ đâu.",
+    "33": "Ngày sinh thêm chút mềm trong cách cư xử: bạn ít khi muốn thắng bằng cách làm người khác thua."
+  },
+  "closing": "Đây là một góc nhìn về bạn, không phải toàn bộ con người bạn."
+}
