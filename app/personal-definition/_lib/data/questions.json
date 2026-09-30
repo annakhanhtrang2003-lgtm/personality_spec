@@ -1,0 +1,65 @@
+{
+  "size": 40,
+  "defaults": { "EI": "I", "SN": "N", "TF": "F", "JP": "P" },
+  "poles": {
+    "EI": { "first": "E", "second": "I" },
+    "SN": { "first": "S", "second": "N" },
+    "TF": { "first": "T", "second": "F" },
+    "JP": { "first": "J", "second": "P" }
+  },
+  "pole_definitions": {
+    "E": "Lấy lại năng lượng từ tương tác với người khác; nghĩ bằng cách nói ra.",
+    "I": "Lấy lại năng lượng khi ở một mình; nghĩ xong rồi mới nói.",
+    "S": "Tin vào thông tin cụ thể, quan sát được, đã kiểm chứng.",
+    "N": "Chú ý tới mẫu hình, khả năng, ý nghĩa phía sau thông tin.",
+    "T": "Ra quyết định dựa trên tính nhất quán và logic của vấn đề.",
+    "F": "Ra quyết định dựa trên giá trị và tác động lên con người.",
+    "J": "Thấy dễ chịu khi mọi thứ được quyết định và có kế hoạch.",
+    "P": "Thấy dễ chịu khi giữ phương án mở và ứng biến."
+  },
+  "items": [
+    { "id": "ei_01", "dimension": "EI", "key":  1, "text": "Ở chỗ đông người, tôi thường là người bắt chuyện trước.", "label_set": "situation" },
+    { "id": "ei_06", "dimension": "EI", "key": -1, "text": "Sau một buổi họp nhóm đông người, tôi thấy cạn năng lượng.", "label_set": "situation" },
+    { "id": "ei_02", "dimension": "EI", "key":  1, "text": "Có sự kiện gì đông vui là tôi muốn đi liền.", "label_set": "self" },
+    { "id": "ei_07", "dimension": "EI", "key": -1, "text": "Cuối tuần lý tưởng của tôi là ở nhà một mình làm việc mình thích.", "label_set": "self" },
+    { "id": "ei_03", "dimension": "EI", "key":  1, "text": "Nghĩ chưa ra, tôi nói ra cho bạn nghe rồi mới rõ.", "label_set": "self" },
+    { "id": "ei_08", "dimension": "EI", "key": -1, "text": "Tôi cần nghĩ xong trong đầu rồi mới phát biểu trước lớp.", "label_set": "self" },
+    { "id": "ei_04", "dimension": "EI", "key":  1, "text": "Giờ nghỉ giữa hai tiết học, tôi hay sang bàn khác tán gẫu.", "label_set": "situation" },
+    { "id": "ei_09", "dimension": "EI", "key": -1, "text": "Tết đông họ hàng, tôi hay tìm một góc yên tĩnh để nghỉ một lát.", "label_set": "situation" },
+    { "id": "ei_05", "dimension": "EI", "key":  1, "text": "Làm thêm ở quán, tôi thấy vui vì được nói chuyện với nhiều người.", "label_set": "situation" },
+    { "id": "ei_10", "dimension": "EI", "key": -1, "text": "Ngồi một mình một lát là tôi thấy nạp lại được năng lượng.", "label_set": "self" },
+
+    { "id": "sn_06", "dimension": "SN", "key": -1, "text": "Tôi hay tưởng tượng mọi thứ có thể thành cái gì sau này.", "label_set": "self" },
+    { "id": "sn_01", "dimension": "SN", "key":  1, "text": "Tôi chỉ tin khi tự mình quan sát được.", "label_set": "self" },
+    { "id": "sn_07", "dimension": "SN", "key": -1, "text": "Đọc một tin tức, tôi liên hệ ngay tới mấy chuyện khác có vẻ liên quan.", "label_set": "situation" },
+    { "id": "sn_02", "dimension": "SN", "key":  1, "text": "Khi nhận đề tài mới, tôi muốn xem một ví dụ cụ thể trước đã.", "label_set": "situation" },
+    { "id": "sn_08", "dimension": "SN", "key": -1, "text": "Trong đầu tôi hay bật ra ý tưởng lạ giữa lúc đang làm việc khác.", "label_set": "self" },
+    { "id": "sn_03", "dimension": "SN", "key":  1, "text": "Lúc học bài, tôi thích bám vào chi tiết và số liệu cụ thể.", "label_set": "situation" },
+    { "id": "sn_09", "dimension": "SN", "key": -1, "text": "Với bài tập nhóm, tôi thích đề xuất một cách làm khác với mẫu có sẵn.", "label_set": "situation" },
+    { "id": "sn_04", "dimension": "SN", "key":  1, "text": "Ý tưởng hay tới mấy, tôi vẫn đợi thấy nó chạy thật.", "label_set": "situation" },
+    { "id": "sn_10", "dimension": "SN", "key": -1, "text": "Điều làm tôi tò mò nhất là ý nghĩa phía sau những gì đang xảy ra.", "label_set": "self" },
+    { "id": "sn_05", "dimension": "SN", "key":  1, "text": "Nghe ai kể chuyện, tôi hay hỏi lại chuyện đó diễn ra chính xác thế nào.", "label_set": "situation" },
+
+    { "id": "tf_06", "dimension": "TF", "key": -1, "text": "Trước khi quyết định, tôi nghĩ xem ai sẽ bị ảnh hưởng.", "label_set": "situation" },
+    { "id": "tf_01", "dimension": "TF", "key":  1, "text": "Khi góp ý cho bạn, tôi nói thẳng vấn đề dù hơi khó nghe.", "label_set": "situation" },
+    { "id": "tf_07", "dimension": "TF", "key": -1, "text": "Tôi thường đứng về phía người ít được lắng nghe nhất trong nhóm.", "label_set": "self" },
+    { "id": "tf_02", "dimension": "TF", "key":  1, "text": "Trong tranh luận, lý lẽ chặt chẽ là thứ thuyết phục được tôi.", "label_set": "situation" },
+    { "id": "tf_08", "dimension": "TF", "key": -1, "text": "Tôi chọn cách nói nhẹ đi một chút để người nghe đỡ tổn thương.", "label_set": "self" },
+    { "id": "tf_03", "dimension": "TF", "key": -1, "text": "Chia việc nhóm, tôi muốn ai cũng có cơ hội làm phần quan trọng.", "label_set": "situation" },
+    { "id": "tf_09", "dimension": "TF", "key":  1, "text": "Quyết định lớn, tôi chọn phương án hiệu quả nhất.", "label_set": "situation" },
+    { "id": "tf_04", "dimension": "TF", "key":  1, "text": "Lựa chọn khó, tôi liệt kê ra cho rõ rồi mới quyết.", "label_set": "situation" },
+    { "id": "tf_10", "dimension": "TF", "key": -1, "text": "Không khí trong nhóm với tôi cũng là một kết quả.", "label_set": "self" },
+    { "id": "tf_05", "dimension": "TF", "key":  1, "text": "Quy định chung thì nên áp dụng như nhau với mọi người.", "label_set": "self" },
+
+    { "id": "jp_01", "dimension": "JP", "key":  1, "text": "Trước kỳ thi, tôi lập một lịch ôn cụ thể ngay từ đầu.", "label_set": "situation" },
+    { "id": "jp_06", "dimension": "JP", "key": -1, "text": "Tôi làm việc hiệu quả nhất khi để mọi thứ linh hoạt tới phút cuối.", "label_set": "self" },
+    { "id": "jp_02", "dimension": "JP", "key":  1, "text": "Chuyện gì chốt xong xuôi thì tôi mới thấy nhẹ người.", "label_set": "self" },
+    { "id": "jp_07", "dimension": "JP", "key": -1, "text": "Kế hoạch đổi giữa chừng với tôi cũng chẳng có gì to tát.", "label_set": "self" },
+    { "id": "jp_03", "dimension": "JP", "key":  1, "text": "Gạch xong từng dòng trong to-do list làm tôi thấy dễ chịu.", "label_set": "self" },
+    { "id": "jp_08", "dimension": "JP", "key": -1, "text": "Đang đi đâu đó, thấy chỗ nào hay là tôi ghé vào luôn.", "label_set": "situation" },
+    { "id": "jp_04", "dimension": "JP", "key":  1, "text": "Đi chơi xa với bạn bè, tôi muốn chốt lịch trình từ trước.", "label_set": "situation" },
+    { "id": "jp_09", "dimension": "JP", "key": -1, "text": "Chọn chỗ thực tập, tôi muốn giữ nhiều lựa chọn mở càng lâu càng tốt.", "label_set": "situation" },
+    { "id": "jp_05", "dimension": "JP", "key":  1, "text": "Việc còn dang dở làm tôi khó tập trung sang việc khác.", "label_set": "self" },
+    { "id": "jp_10", "dimension": "JP", "key": -1, "text": "Tôi bắt đầu làm trước rồi vừa làm vừa điều chỉnh.", "label_set": "self" }
+  ]
+}
